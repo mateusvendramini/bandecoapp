@@ -1,1 +1,1 @@
-Editado por Gashuolho
+editado por imagure
