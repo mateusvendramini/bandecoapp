@@ -1,1 +1,1 @@
-Estou tentando mudar o readme
+Editado por Gashuolho
