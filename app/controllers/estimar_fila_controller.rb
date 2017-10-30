@@ -1,4 +1,10 @@
 class EstimarFilaController < ApplicationController
-	def 
+	def estimar_fila
+
+		for i in Restaurantes.ids
+
+
+		end
+	end
 end
 
