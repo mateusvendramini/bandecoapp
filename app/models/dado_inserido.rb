@@ -1,0 +1,2 @@
+class DadoInserido < ApplicationRecord
+end

@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Estado fila:</strong>
+  <%= @fila.estado_fila %>
+</p>
+
+<p>
+  <strong>Id restaurante:</strong>
+  <%= @fila.id_restaurante %>
+</p>
+
+<%= link_to 'Edit', edit_fila_path(@fila) %> |
+<%= link_to 'Back', filas_path %>

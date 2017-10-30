@@ -1,0 +1,2 @@
+module DadoInseridosHelper
+end

@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  id_fila: 1
+  posicao: MyString
+  horario: MyString
+
+two:
+  id_fila: 1
+  posicao: MyString
+  horario: MyString

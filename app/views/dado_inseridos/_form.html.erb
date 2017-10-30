@@ -1,0 +1,32 @@
+<%= form_with(model: dado_inserido, local: true) do |form| %>
+  <% if dado_inserido.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(dado_inserido.errors.count, "error") %> prohibited this dado_inserido from being saved:</h2>
+
+      <ul>
+      <% dado_inserido.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :id_fila %>
+    <%= form.number_field :id_fila, id: :dado_inserido_id_fila %>
+  </div>
+
+  <div class="field">
+    <%= form.label :posicao %>
+    <%= form.text_field :posicao, id: :dado_inserido_posicao %>
+  </div>
+
+  <div class="field">
+    <%= form.label :horario %>
+    <%= form.text_field :horario, id: :dado_inserido_horario %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
