@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'pagina_admin/admin'
+
   resources :dado_inseridos
   resources :filas
   resources :restaurantes
