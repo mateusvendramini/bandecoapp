@@ -1,8 +1,8 @@
 require 'test_helper'
 
 class StaticPagesControllerTest < ActionDispatch::IntegrationTest
-  test "should get novo_restaurante" do
-    get static_pages_novo_restaurante_url
+  test "should get home" do
+    get static_pages_home_url
     assert_response :success
   end
 
