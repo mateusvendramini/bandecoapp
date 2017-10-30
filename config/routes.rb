@@ -1,5 +1,12 @@
 Rails.application.routes.draw do
+
+
+
   get 'static_pages/novo_restaurante'
 
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
+  resources :dado_inseridos
+  resources :filas
+  resources :restaurantes
+  resources :admins
 end

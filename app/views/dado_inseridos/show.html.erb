@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Id fila:</strong>
+  <%= @dado_inserido.id_fila %>
+</p>
+
+<p>
+  <strong>Posicao:</strong>
+  <%= @dado_inserido.posicao %>
+</p>
+
+<p>
+  <strong>Horario:</strong>
+  <%= @dado_inserido.horario %>
+</p>
+
+<%= link_to 'Edit', edit_dado_inserido_path(@dado_inserido) %> |
+<%= link_to 'Back', dado_inseridos_path %>

@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Dado Inseridos</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Id fila</th>
+      <th>Posicao</th>
+      <th>Horario</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @dado_inseridos.each do |dado_inserido| %>
+      <tr>
+        <td><%= dado_inserido.id_fila %></td>
+        <td><%= dado_inserido.posicao %></td>
+        <td><%= dado_inserido.horario %></td>
+        <td><%= link_to 'Show', dado_inserido %></td>
+        <td><%= link_to 'Edit', edit_dado_inserido_path(dado_inserido) %></td>
+        <td><%= link_to 'Destroy', dado_inserido, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Dado Inserido', new_dado_inserido_path %>
