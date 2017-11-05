@@ -18,28 +18,49 @@ class AdminsController < ApplicationController
   # GET /admins/new
   def new
     @admin = Admin.new
+
   end
 
   # GET /admins/1/edit
   def edit
-    @admin = Admin.find(paramms[:id])
+    @admin = Admin.find(params[:id])
   end
 
   # POST /admins
   # POST /admins.json
   def create
-    @admin = Admin.new(admin_params)
-
-    respond_to do |format|
-      if @admin.save
-        format.html { redirect_to @admin, notice: 'Admin was successfully created.' }
-        format.json { render :show, status: :created, location: @admin }
-      else
-        format.html { render :new }
-        format.json { render json: @admin.errors, status: :unprocessable_entity }
-      end
+    #cria lista com todos os logins já cadastrados
+    i = 0
+    log = []
+    while i < Admin.all.length do
+      log.append(Admin.all[i].login)
+      i = i +1
     end
+
+    if(not log.include?(admin_params[:login]) and admin_params[:login] != nil and admin_params[:nome] != nil and admin_params[:senha] != nil)
+      @admin = Admin.new(admin_params)
+
+      respond_to do |format|
+        if @admin.save
+            #if not Admin.login.include?(@admin.login)
+            format.html { redirect_to @admin, notice: 'Admin was successfully created.' }
+            format.json { render :show, status: :created, location: @admin }
+            #else
+            #format.html { render :new, notice: 'Login não único'}
+            #format.json { render json: @admin.errors, status: :unprocessable_entity }
+            #end
+        else
+          format.html { redirect_to admins_url, notice: 'Admin was successfully destroyed.'}
+          #format.json { render json: @admin.errors, status: :unprocessable_entity }
+        end
+      end
+    else
+      respond_to do |format|
+        format.html {redirect_to admins_url, notice: 'Admin not add'  }
+        format.json { render json: alert("not working") }
+      end
   end
+end
 
   # PATCH/PUT /admins/1
   # PATCH/PUT /admins/1.json
@@ -50,7 +71,7 @@ class AdminsController < ApplicationController
         format.json { render :show, status: :ok, location: @admin }
       else
         format.html { render :edit }
-        format.json { render json: @admin.errors, status: :unprocessable_entity }
+        #format.json { render json: @admin.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -67,6 +88,7 @@ class AdminsController < ApplicationController
   def delete
     Admin.find(params[id]).destroy
     redirect_to :action => 'index'
+  end  
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_admin
