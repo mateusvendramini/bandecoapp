@@ -9,7 +9,10 @@ class AdminsController < ApplicationController
 
   # GET /admins/1
   # GET /admins/1.json
+  #show Admin of id 
+  #talvez eu mude para procurar por login
   def show
+    @admin = Admin.find(params[:id])
   end
 
   # GET /admins/new
@@ -19,6 +22,7 @@ class AdminsController < ApplicationController
 
   # GET /admins/1/edit
   def edit
+    @admin = Admin.find(paramms[:id])
   end
 
   # POST /admins
@@ -60,7 +64,9 @@ class AdminsController < ApplicationController
       format.json { head :no_content }
     end
   end
-
+  def delete
+    Admin.find(params[id]).destroy
+    redirect_to :action => 'index'
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_admin
