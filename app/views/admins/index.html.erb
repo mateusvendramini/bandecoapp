@@ -13,6 +13,7 @@
   </thead>
 
   <tbody>
+    <% if not  @admins.blank? %>
     <% @admins.each do |admin| %>
       <tr>
         <td><%= admin.login %></td>
@@ -25,7 +26,10 @@
     <% end %>
   </tbody>
 </table>
-
+<% else %>
+<p> There are no admins registed yet</p>
+<%end%>
 <br>
+
 
 <%= link_to 'New Admin', new_admin_path %>

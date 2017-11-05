@@ -50,14 +50,14 @@ class AdminsController < ApplicationController
             #format.json { render json: @admin.errors, status: :unprocessable_entity }
             #end
         else
-          format.html { redirect_to admins_url, notice: 'Admin was successfully destroyed.'}
+          format.html { redirect_to admins_url, notice: 'Admin was not validated.'}
           #format.json { render json: @admin.errors, status: :unprocessable_entity }
         end
       end
     else
       respond_to do |format|
         format.html {redirect_to admins_url, notice: 'Admin not add'  }
-        format.json { render json: alert("not working") }
+        #format.json { render json: alert("not working") }
       end
   end
 end
@@ -85,10 +85,12 @@ end
       format.json { head :no_content }
     end
   end
+
   def delete
-    Admin.find(params[id]).destroy
+    Admin.find(params[:id]).destroy
     redirect_to :action => 'index'
-  end  
+  end
+  
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_admin
