@@ -1,17 +1,17 @@
 <p id="notice"><%= notice %></p>
 <h1>Editing Admin</h1>
 
-<%= form_tag :action => 'create' do %>
-<p><label for ="admin_login"> login</label>
-<%= text_field :admin, :login %></p>
-<p><label for ="admin_senha"> Senha</label>
-<%= text_field :admin, :senha %>
-<p><label for ="admin_senha_confirmation"> Confirme sua senha</label>
-<%= text_field :admin, :senha_confirmation %></p>
-<p><label for ="admin_nome"> nome</label>
-<%= text_field :admin, :nome %>
-<%= submit_tag "Create" %>
-<% end -%>
+
+
+
+
+<%= form_for @admin, :url =>{:action => "update", :id =>@admin} do |f| %>
+<p>Login: <%= f.text_field 'login' %></p>
+<p>Senha: <%= f.text_field 'senha' %></p>
+<p>Confirmacao: <%= f.text_field 'senha_confirmation' %></p>
+<p>nome: <%= f.text_field 'nome' %></p>
+<%= f.submit "Save changes" %>
+<% end %>
 
 <%= link_to 'Show', @admin %> |
 <%= link_to 'Back', admins_path %>

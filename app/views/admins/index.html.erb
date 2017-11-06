@@ -21,6 +21,7 @@
         <td><%= admin.nome %></td>
         <td><%= link_to 'Show', admin %></td>
         <td><%= link_to 'Edit', edit_admin_path(admin) %></td>
+        <td><%= link_to "Delete", {:action => 'delete', :id => admin.id}, :confirm => "Are you sure you want to delete this item?" %></</td>
         
       </tr>
     <% end %>
