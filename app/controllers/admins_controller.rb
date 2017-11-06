@@ -30,14 +30,8 @@ class AdminsController < ApplicationController
   # POST /admins.json
   def create
     #cria lista com todos os logins já cadastrados
-    i = 0
-    log = []
-    while i < Admin.all.length do
-      log.append(Admin.all[i].login)
-      i = i +1
-    end
+    
 
-    if(not log.include?(admin_params[:login]) and admin_params[:login] != nil and admin_params[:nome] != nil and admin_params[:senha] != nil)
       @admin = Admin.new(admin_params)
 
       respond_to do |format|
@@ -50,17 +44,12 @@ class AdminsController < ApplicationController
             #format.json { render json: @admin.errors, status: :unprocessable_entity }
             #end
         else
-          format.html { redirect_to admins_url, notice: 'Admin was not validated.'}
+          format.html { render :edit, notice: 'Admin was not validated.'}
           #format.json { render json: @admin.errors, status: :unprocessable_entity }
         end
       end
-    else
-      respond_to do |format|
-        format.html {redirect_to admins_url, notice: 'Admin not add'  }
-        #format.json { render json: alert("not working") }
-      end
+    
   end
-end
 
   # PATCH/PUT /admins/1
   # PATCH/PUT /admins/1.json

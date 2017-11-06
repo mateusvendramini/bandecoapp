@@ -3,5 +3,7 @@
 <h2> O Login tem que ser único.</h2>
 
 <%= render 'form', admin: @admin %>
+<%= text_field :admin, :senha %>
+<%= text_field :admin, :senha_confirmation %>
 
 <%= link_to 'Back', admins_path %>
