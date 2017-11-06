@@ -1,6 +1,17 @@
+<p id="notice"><%= notice %></p>
 <h1>Editing Admin</h1>
 
-<%= render 'form', admin: @admin %>
+<%= form_tag :action => 'create' do %>
+<p><label for ="admin_login"> login</label>
+<%= text_field :admin, :login %></p>
+<p><label for ="admin_senha"> Senha</label>
+<%= text_field :admin, :senha %>
+<p><label for ="admin_senha_confirmation"> Confirme sua senha</label>
+<%= text_field :admin, :senha_confirmation %></p>
+<p><label for ="admin_nome"> nome</label>
+<%= text_field :admin, :nome %>
+<%= submit_tag "Create" %>
+<% end -%>
 
 <%= link_to 'Show', @admin %> |
 <%= link_to 'Back', admins_path %>
