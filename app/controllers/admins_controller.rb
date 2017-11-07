@@ -15,6 +15,9 @@ class AdminsController < ApplicationController
     @admin = Admin.find(params[:id])
   end
 
+  def confirm
+    @admin = Admin.new(cookies[:login],cookies[:senha], cookies[:nome] )
+  end
   # GET /admins/new
   def new
     @admin = Admin.new
@@ -38,6 +41,37 @@ class AdminsController < ApplicationController
         if @admin.save
             #if not Admin.login.include?(@admin.login)
             format.html { redirect_to @admin, notice: 'Admin was successfully created.' }
+            format.json { render :show, status: :created, location: @admin }
+            #else
+            #format.html { render :new, notice: 'Login não único'}
+            #format.json { render json: @admin.errors, status: :unprocessable_entity }
+            #end
+        else
+          format.html { render :edit, notice: 'Admin was not validated.'}
+          #format.json { render json: @admin.errors, status: :unprocessable_entity }
+        end
+      end
+    
+  end
+
+  def createCookie
+    #cria lista com todos os logins já cadastrados
+    
+
+      @admin = Admin.new(admin_params)
+      cookies[:login] = admin.login 
+      cookies[:senha] = admin.senha
+      cookies[:senha_validation] = admin.senha_validation
+      cookies[:nome] = nome
+      logins = []
+      Admin.all.each do |f|
+        logins.append(f.login)
+      end
+
+      respond_to do |format|
+        if (not logins.include?.cookies[:login]) and cookies[:senha] = cookies[:senha_validation]
+            #if not Admin.login.include?(@admin.login)
+            format.html { redirect_to @admin, notice: 'Admin is valid successfully created.' }
             format.json { render :show, status: :created, location: @admin }
             #else
             #format.html { render :new, notice: 'Login não único'}
