@@ -1,0 +1,21 @@
+<p id="notice"><%= notice %></p>
+<h1> Are you sure, my lad ?</h1>
+<p>
+<%= form_tag :action => 'createWCookies' do %>
+  <strong>Login:</strong>
+  <%= @admin.login %>
+</p>
+
+<p>
+  <strong>Senha:</strong>
+  <%= @admin.senha %>
+</p>
+
+<p>
+  <strong>Nome:</strong>
+  <%= @admin.nome %>
+</p>
+
+<%= submit_tag "createWCookie" %>
+<% end -%>
+<%= link_to 'Back', admins_path %>

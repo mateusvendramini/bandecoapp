@@ -2,7 +2,7 @@
 <h2> Todos os campos são obrigatórios.</h2>
 <h2> O Login tem que ser único.</h2>
 
-<%= form_tag :action => 'create' do %>
+<%= form_tag :action => 'createCookie' do %>
 <p><label for ="admin_login"> login</label>
 <%= text_field :admin, :login %></p>
 <p><label for ="admin_senha"> Senha</label>
@@ -11,6 +11,6 @@
 <%= text_field :admin, :senha_confirmation %></p>
 <p><label for ="admin_nome"> nome</label>
 <%= text_field :admin, :nome %>
-<%= submit_tag "Create" %>
+<%= submit_tag "CreateCookie" %>
 <% end -%>
 <%= link_to 'Back', admins_path %>
