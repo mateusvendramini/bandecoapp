@@ -61,7 +61,7 @@ class AdminsController < ApplicationController
       @admin = Admin.new(id: cookies[:id],login: cookies[:login],senha: cookies[:senha],nome: cookies[:nome] )
       @admin.save
       respond_to do |format|
-        format.html { redirect_to admins_url, notice: 'Admin was successfully created.' }
+        format.html { render :new, notice: 'Admin was successfully created. Now you can add another Admin' }
         format.json { render :confirm, status: :created, location: @admin }
       end
       #respond_to do |format|
