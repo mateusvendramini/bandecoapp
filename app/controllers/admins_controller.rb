@@ -89,7 +89,7 @@ class AdminsController < ApplicationController
       cookies[:id] = @admin.id
       cookies[:login] = @admin.login 
       cookies[:senha] = @admin.senha
-      cookies[:senha_validation] = @admin.senha_confirmation
+      cookies[:senha_confirmation] = @admin.senha_confirmation
       cookies[:nome] = @admin.nome
       logins = []
       Admin.all.each do |f|
@@ -97,7 +97,7 @@ class AdminsController < ApplicationController
       end
 
       respond_to do |format|
-        if (not logins.include?(cookies[:login])) and cookies[:senha] == cookies[:senha_confirmation]
+        if (not logins.include?(cookies[:login])) and (@admin.senha == @admin.senha_confirmation)
             #if not Admin.login.include?(@admin.login)
             format.html { render :confirm, notice: 'Confirm your entrie.' }
             #format.json { render :show, status: :created, location: @admin }
@@ -106,7 +106,7 @@ class AdminsController < ApplicationController
             #format.json { render json: @admin.errors, status: :unprocessable_entity }
             #end
         else
-           format.html { render :confirm, notice: 'Confirm your entrie.' }
+           format.html { render :new, notice: 'This`s not going to go.' }
           #format.html { render :createCookie, notice: 'Admin was not validated.'}
           #format.json { render json: @admin.errors, status: :unprocessable_entity }
         end
@@ -151,6 +151,6 @@ class AdminsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def admin_params
-      params.require(:admin).permit(:login, :senha, :nome)
+      params.require(:admin).permit(:login, :senha, :senha_confirmation, :nome)
     end
 end
