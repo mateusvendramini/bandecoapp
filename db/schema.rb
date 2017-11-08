@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171107234551) do
+ActiveRecord::Schema.define(version: 20171108011804) do
 
   create_table "admins", force: :cascade do |t|
     t.string "login"
@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(version: 20171107234551) do
     t.datetime "updated_at", null: false
     t.string "password_digest"
     t.string "senha_confirmation"
+    t.string "email"
   end
 
   create_table "dado_inseridos", force: :cascade do |t|

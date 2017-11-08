@@ -16,7 +16,7 @@ class AdminsController < ApplicationController
   end
 
   def confirm
-    @admin = Admin.new(id: cookies[:id], login: cookies[:login],senha: cookies[:senha],nome: cookies[:nome] )
+    @admin = Admin.new(id: cookies[:id], login: cookies[:login],senha: cookies[:senha],nome: cookies[:nome], email: cookies[:email] )
   end
   # GET /admins/new
   def new
@@ -58,7 +58,7 @@ class AdminsController < ApplicationController
     #cria lista com todos os logins já cadastrados
     
 
-      @admin = Admin.new(id: cookies[:id],login: cookies[:login],senha: cookies[:senha],nome: cookies[:nome] )
+      @admin = Admin.new(id: cookies[:id],login: cookies[:login],senha: cookies[:senha],nome: cookies[:nome],email: cookies[:email] )
       @admin.save
       respond_to do |format|
         format.html { render :new, notice: 'Admin was successfully created. Now you can add another Admin' }
@@ -91,6 +91,7 @@ class AdminsController < ApplicationController
       cookies[:senha] = @admin.senha
       cookies[:senha_confirmation] = @admin.senha_confirmation
       cookies[:nome] = @admin.nome
+      cookies[:email] = @admin.email
       logins = []
       Admin.all.each do |f|
         logins.append(f.login)
@@ -151,6 +152,6 @@ class AdminsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def admin_params
-      params.require(:admin).permit(:login, :senha, :senha_confirmation, :nome)
+      params.require(:admin).permit(:login, :senha, :senha_confirmation, :nome, :email)
     end
 end
