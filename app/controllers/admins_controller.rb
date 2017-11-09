@@ -7,6 +7,9 @@ class AdminsController < ApplicationController
     @admins = Admin.all
   end
 
+  def check_box
+  end
+
   # GET /admins/1
   # GET /admins/1.json
   #show Admin of id 
