@@ -151,9 +151,12 @@ class AdminsController < ApplicationController
       Admin.find(f).delete
     redirect_to :action => 'index'
     end
-
-
   end
+
+  def select_multiple
+    @admins = Admin.find(params[:admin_ids])
+  end
+
 
   private
     # Use callbacks to share common setup or constraints between actions.

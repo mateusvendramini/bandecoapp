@@ -5,23 +5,23 @@
   <thead>
     <tr>
       <th>Login</th>
-      <th>Senha</th>
       <th>Nome</th>
+      <th>Email</th>
       <th colspan="3"></th>
     </tr>
   </thead>
 
 
-
+  <h2> Tela de confirmação de exclusão</h2>
+  <h2>Selecione os Admins que você realmente deseja excluir</h2>
   <tbody>
-    <%= form_tag :action => 'select_multiple' do %>
+    <%= form_tag :action => 'delete_multiple', :url => 'select_multiple_admin_path' do %>
     <% for admin in @admins %>
       <tr>
         <td><%= admin.login %></td>
         <td><%= admin.nome %></td>
-        <td><%= link_to 'Show', admin %></td>
-        <td><%= link_to 'Edit', edit_admin_path(admin) %></td>
-        <td><%= link_to "Delete", {:action => 'delete', :id => admin.id}, :confirm => "Are you sure you want to delete this item?" %></</td>
+        <td><%= admin.email %></td>
+        
         <td><%=check_box_tag "admin_ids[]", admin.id%></td>
 
       
@@ -33,4 +33,5 @@
 <br>
 
 <% end %>
-<%= link_to 'New Admin', new_admin_path %>
+
+<%= link_to 'Im not sure, my memer', controller: "admins", action: "index" %>

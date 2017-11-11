@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   get 'admins/delete'
   post 'admins/update'
   post "admins/delete_multiple"
+  post "admins/select_multiple"
+
   resources :dado_inseridos
   resources :filas
   resources :restaurantes
