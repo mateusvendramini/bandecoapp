@@ -146,7 +146,15 @@ class AdminsController < ApplicationController
     Admin.find(params[:id]).destroy
     redirect_to :action => 'index'
   end
-  
+  def delete_multiple
+    params[:admin_ids].each do |f|
+      Admin.find(f).delete
+    redirect_to :action => 'index'
+    end
+
+
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_admin
@@ -155,6 +163,6 @@ class AdminsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def admin_params
-      params.require(:admin).permit(:login, :senha, :senha_confirmation, :nome, :email)
+      params.require(:admin).permit(:login, :senha, :senha_confirmation, :nome, :email, :admin_ids[])
     end
 end

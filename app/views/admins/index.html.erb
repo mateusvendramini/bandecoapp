@@ -1,7 +1,6 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Admins</h1>
-
 <table>
   <thead>
     <tr>
@@ -12,26 +11,26 @@
     </tr>
   </thead>
 
+
+
   <tbody>
-    <% if not  @admins.blank? %>
-    <% @admins.each do |admin| %>
+    <%= form_tag :action => 'delete_multiple' do %>
+    <% for admin in @admins %>
       <tr>
         <td><%= admin.login %></td>
         <td><%= admin.nome %></td>
         <td><%= link_to 'Show', admin %></td>
         <td><%= link_to 'Edit', edit_admin_path(admin) %></td>
         <td><%= link_to "Delete", {:action => 'delete', :id => admin.id}, :confirm => "Are you sure you want to delete this item?" %></</td>
-        <td><%=check_box("admin", admin.id,{ :multiple => true})%>
+        <td><%=check_box_tag "admin_ids[]", admin.id%></td>
 
-        
+      
       </tr>
     <% end %>
+    <%= submit_tag "Delete checked" %>
   </tbody>
 </table>
-<% else %>
-<p> There are no admins registed yet</p>
-<%end%>
 <br>
 
-
+<% end %>
 <%= link_to 'New Admin', new_admin_path %>
