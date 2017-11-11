@@ -89,20 +89,37 @@ class AdminsController < ApplicationController
     
 
       @admin = Admin.new(admin_params)
-      cookies[:id] = @admin.id
-      cookies[:login] = @admin.login 
-      cookies[:senha] = @admin.senha
-      cookies[:senha_confirmation] = @admin.senha_confirmation
-      cookies[:nome] = @admin.nome
-      cookies[:email] = @admin.email
+      id_index = []
+      Admin.all.each do |f|
+        id_index.append(f.id)
+      end
+      geraId = true
+      idGerado = 0
+      while geraId do
+        if id_index.include?(idGerado)
+          idGerado = idGerado + 1
+        else
+        geraId = false
+      end
+      end    
+
+
+
+      cookies[:id] = idGerado
+      cookies[:login] = admin_params[:login]
+      cookies[:senha] = admin_params[:senha]
+      cookies[:senha_confirmation] = admin_params[:senha_confirmation]
+      cookies[:nome] = admin_params[:nome]
+      cookies[:email] = admin_params[:email]
       logins = []
       Admin.all.each do |f|
         logins.append(f.login)
       end
 
       respond_to do |format|
-        if (not logins.include?(cookies[:login])) and (@admin.senha == @admin.senha_confirmation)
-            #if not Admin.login.include?(@admin.login)
+        #se login considerado válido
+        if (not logins.include?(cookies[:login])) and (cookies[:senha] == cookies[:senha_confirmation])
+            
             format.html { render :confirm, notice: 'Confirm your entrie.' }
             #format.json { render :show, status: :created, location: @admin }
             #else
@@ -110,6 +127,7 @@ class AdminsController < ApplicationController
             #format.json { render json: @admin.errors, status: :unprocessable_entity }
             #end
         else
+        #pede reinserção dos dados  
            format.html { render :new, notice: 'This`s not going to go.' }
           #format.html { render :createCookie, notice: 'Admin was not validated.'}
           #format.json { render json: @admin.errors, status: :unprocessable_entity }
@@ -149,8 +167,9 @@ class AdminsController < ApplicationController
   def delete_multiple
     params[:admin_ids].each do |f|
       Admin.find(f).delete
-    redirect_to :action => 'index'
+    
     end
+    redirect_to :action => 'index'
   end
 
   def select_multiple
@@ -166,6 +185,6 @@ class AdminsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def admin_params
-      params.require(:admin).permit(:login, :senha, :senha_confirmation, :nome, :email, :admin_ids[])
+      params.require(:admin).permit(:login, :senha, :senha_confirmation, :nome, :email, :admin_ids)
     end
 end
