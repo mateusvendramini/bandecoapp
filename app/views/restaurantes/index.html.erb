@@ -42,8 +42,8 @@ tr:nth-child(even) {
         <td><%= link_to 'Link para Cardápio', restaurante.cardapio %></td>
         <td><%= link_to 'Link para o layout da fila', restaurante.layout %></td>
         <td><img src=<%=restaurante.mapa %> width="149" height="105" /img></td>
-        <td><%= restaurante.foto %></td>
-        <td><%= link_to 'Mostrar', restaurante %></td>
+        <td><img src=<%=restaurante.foto %> width="149" height="105" /img></td>
+        <td><%= link_to 'Mostrar informações', restaurante %></td>
         <td><%= link_to 'Editar', edit_restaurante_path(restaurante) %></td>
         <td><%= link_to 'Apagar restaurante', {:action => 'delete', :id => restaurante.id}, data: { confirm: "Você tem certeza?" } %></</td>
       </tr>
