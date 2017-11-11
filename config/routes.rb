@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   patch 'restaurantes/update'
   post 'restaurantes/update'
   get 'restaurantes/delete'
+  get  'restaurantes/layout_central'
 
   resources :dado_inseridos
   resources :filas

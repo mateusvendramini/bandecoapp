@@ -66,6 +66,9 @@ class RestaurantesController < ApplicationController
     redirect_to :action => 'index'
   end
 
+  def layout_central
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_restaurante

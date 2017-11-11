@@ -1,7 +1,3 @@
-<p id="notice"><%= notice %></p>
-
-<h1 style="text-align:center;">Restaurantes</h1>
-
 <head>
 <style>
 table {
@@ -22,6 +18,11 @@ tr:nth-child(even) {
 </style>
 </head>
 
+<p id="notice"><%= notice %></p>
+
+<h1 style="text-align:center;">Restaurantes</h1>
+
+<body>
 <table style="width:100%">
   <thead>
     <tr>
@@ -38,18 +39,18 @@ tr:nth-child(even) {
     <% @restaurantes.each do |restaurante| %>
       <tr>
         <td><%= restaurante.nome %></td>
-        <td><%= restaurante.cardapio %></td>
-        <td><%= restaurante.layout %></td>
-        <td><%= restaurante.mapa %></td>
+        <td><%= link_to 'Link para Cardápio', restaurante.cardapio %></td>
+        <td><%= link_to 'Link para o layout da fila', restaurante.layout %></td>
+        <td><img src=<%=restaurante.mapa %> width="150" height="50" /img></td>
         <td><%= restaurante.foto %></td>
         <td><%= link_to 'Mostrar', restaurante %></td>
         <td><%= link_to 'Editar', edit_restaurante_path(restaurante) %></td>
-        <td><%= link_to 'Apagar restaurante', {:action => 'delete', :id => restaurante.id}, :confirm => "Are you sure you want to delete this item?" %></</td>
+        <td><%= link_to 'Apagar restaurante', {:action => 'delete', :id => restaurante.id}, data: { confirm: "Você tem certeza?" } %></</td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
+</body>
 <br>
 
 <%= link_to 'Novo Restaurante', new_restaurante_path %>
