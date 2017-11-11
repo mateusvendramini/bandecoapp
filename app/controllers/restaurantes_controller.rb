@@ -68,6 +68,10 @@ class RestaurantesController < ApplicationController
 
   def layout_central
   end
+  def layout_fisica
+  end
+  def img_reserva
+  end
 
   private
     # Use callbacks to share common setup or constraints between actions.

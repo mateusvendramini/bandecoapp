@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   post 'restaurantes/update'
   get 'restaurantes/delete'
   get  'restaurantes/layout_central'
+  get 'restaurantes/layout_fisica'
+  get 'restaurantes/img_reserva'
 
   resources :dado_inseridos
   resources :filas

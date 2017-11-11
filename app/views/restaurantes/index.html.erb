@@ -27,7 +27,7 @@ tr:nth-child(even) {
   <thead>
     <tr>
       <th>Nome</th>
-      <th>Cardapio</th>
+      <th>Cardápio</th>
       <th>Layout</th>
       <th>Mapa</th>
       <th>Foto</th>
@@ -41,7 +41,7 @@ tr:nth-child(even) {
         <td><%= restaurante.nome %></td>
         <td><%= link_to 'Link para Cardápio', restaurante.cardapio %></td>
         <td><%= link_to 'Link para o layout da fila', restaurante.layout %></td>
-        <td><img src=<%=restaurante.mapa %> width="150" height="50" /img></td>
+        <td><img src=<%=restaurante.mapa %> width="149" height="105" /img></td>
         <td><%= restaurante.foto %></td>
         <td><%= link_to 'Mostrar', restaurante %></td>
         <td><%= link_to 'Editar', edit_restaurante_path(restaurante) %></td>
