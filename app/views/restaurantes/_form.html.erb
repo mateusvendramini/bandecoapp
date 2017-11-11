@@ -11,13 +11,44 @@
     </div>
   <% end %>
 
+    <h3 style="text-align:center;">Por favor, fornecer as informações pedidas abaixo</h3>
+
+    <head>
+    <style>
+    div {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+    div {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+    }
+
+    div:nth-child(even) {
+    background-color: #dddddd;
+    }
+    </style>
+    </head>
+
+    <head>
+    <style>
+    form { 
+    display: block;
+    margin-top: oem;
+    }
+    </style>
+    </head>
+
   <div class="field">
     <%= form.label :nome %>
     <%= form.text_field :nome, id: :restaurante_nome %>
   </div>
 
   <div class="field">
-    <%= form.label :cardapio %>
+    <%= form.label :cardápio %>
     <%= form.text_field :cardapio, id: :restaurante_cardapio %>
   </div>
 
@@ -37,6 +68,6 @@
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit 'Concluir' %>
   </div>
 <% end %>

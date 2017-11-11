@@ -1,8 +1,28 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Restaurantes</h1>
+<h1 style="text-align:center;">Restaurantes</h1>
 
-<table>
+<head>
+<style>
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+</style>
+</head>
+
+<table style="width:100%">
   <thead>
     <tr>
       <th>Nome</th>
@@ -22,9 +42,9 @@
         <td><%= restaurante.layout %></td>
         <td><%= restaurante.mapa %></td>
         <td><%= restaurante.foto %></td>
-        <td><%= link_to 'Show', restaurante %></td>
-        <td><%= link_to 'Edit', edit_restaurante_path(restaurante) %></td>
-        <td><%= link_to 'Destroy', restaurante, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Mostrar', restaurante %></td>
+        <td><%= link_to 'Editar', edit_restaurante_path(restaurante) %></td>
+        <td><%= link_to 'Apagar restaurante', {:action => 'delete', :id => restaurante.id}, :confirm => "Are you sure you want to delete this item?" %></</td>
       </tr>
     <% end %>
   </tbody>
@@ -32,4 +52,4 @@
 
 <br>
 
-<%= link_to 'New Restaurante', new_restaurante_path %>
+<%= link_to 'Novo Restaurante', new_restaurante_path %>

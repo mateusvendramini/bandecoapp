@@ -1,9 +1,10 @@
 Rails.application.routes.draw do
 
-
-
-  get 'static_pages/novo_restaurante'
-
+  get 'restaurantes/index'
+  post 'restaurantes/create'
+  patch 'restaurantes/update'
+  post 'restaurantes/update'
+  get 'restaurantes/delete'
 
   resources :dado_inseridos
   resources :filas
