@@ -1,24 +1,26 @@
 
 <% if logged_in? %>
-<head>
-<style>
-table {
-    font-family: arial, sans-serif;
-    border-collapse: collapse;
-    width: 80%;
-}
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= full_title(yield(:title)) %></title>
+    <%= csrf_meta_tags %>
+    <%= stylesheet_link_tag    'application', media: 'all',
+                                              'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= render 'layouts/shim' %>
+  </head>
+  <body>
+    <%= render 'layouts/header' %>
+    <div class="container">
+      <%= yield %>
+    </div>
 
-td, th,p {
-    border: 1px solid #dddddd;
-    text-align: left;
-    padding: 8px;
-}
 
-tr:nth-child(even) {
-    background-color: #dddddd;
-}
-</style>
-</head>
+
+
+    <div class="center jumbotron">
+
 <% if not flash[:error].nil? %>
 <p><%= flash[:error] %></p> 
 <%end%>	
@@ -44,6 +46,22 @@ tr:nth-child(even) {
 <%= submit_tag "Criar administrador" %>
 <% end -%>
 <%= link_to 'Voltar para lista de administradores', admins_path %>
+
+</div>
+
+
+
+    <div class="container">
+      <%= yield %>
+      <%= render 'layouts/footer' %>
+    </div>
+
+
+
+  </body>
+</html>
+
+
 <% else %>
 
 <h1>Não logado </h1>
