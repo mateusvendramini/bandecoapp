@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
     if admin && admin.senha == params[:session][:senha]
       # Log the user in and redirect to the user's show page.
       log_in admin
-      redirect_to admin
+      redirect_to admins_path
     else
       # Create an error message.
       flash.now[:danger] = 'Admin ou senha inválidos. Verifique e tente novamente!' # Not quite right!

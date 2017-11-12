@@ -18,9 +18,9 @@ tr:nth-child(even) {
 }
 </style>
 </head>
-<p id="notice"><%= notice %></p>
 
-<h1> Are you sure, my lad ?</h1>
+
+<h1> Confirme os dados</h1>
 <p>
 <%= form_tag :action => 'createWCookies' do %>
   <strong>Login:</strong>
@@ -41,9 +41,9 @@ tr:nth-child(even) {
   <%= @admin.email %>
 </p>
 
-<%= submit_tag "Confirma criação" %>
+<%= submit_tag "Cadastrar" %>
 <% end -%>
-<%= link_to 'Quero reinserir os dados', controller: "admins", action: "new", id: @admin %>
+<%= link_to 'voltar', controller: "admins", action: "new", id: @admin %>
 <% else %>
 <h1>Não logado </h1>
 <meta http-equiv="refresh" content="0; url=/" /> 

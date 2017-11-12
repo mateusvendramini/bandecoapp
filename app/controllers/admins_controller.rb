@@ -140,7 +140,7 @@ class AdminsController < ApplicationController
            if((cookies[:senha] != cookies[:senha_confirmation]))
             s = s + "Senhas não batem"
            end 
-           flash[:error] =  s
+           flash.now[:error] =  s
             
           #render(
           #html: "<script>alert('No users!')</script>".html_safe,
