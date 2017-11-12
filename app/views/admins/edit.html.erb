@@ -1,6 +1,40 @@
+<head>
+<style>
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 80%;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+</style>
+</head>
+
+
+
+<p id="notice"><%= notice %></p>
 <h1>Editing Admin</h1>
 
-<%= render 'form', admin: @admin %>
+
+
+
+
+<%= form_for @admin, :url =>{:action => "update", :id =>@admin} do |f| %>
+<p>Login: <%= f.text_field 'login' %></p>
+<p>Senha: <%= f.text_field 'senha' %></p>
+<p>Confirmacao: <%= f.text_field 'senha_confirmation' %></p>
+<p>nome: <%= f.text_field 'nome' %></p>
+<p>email: <%= f.text_field 'email' %></p>
+<%= f.submit "Save changes" %>
+<% end %>
 
 <%= link_to 'Show', @admin %> |
 <%= link_to 'Back', admins_path %>

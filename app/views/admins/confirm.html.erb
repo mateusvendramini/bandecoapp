@@ -1,3 +1,4 @@
+<% if not logged_in? %>
 <head>
 <style>
 table {
@@ -6,9 +7,9 @@ table {
     width: 80%;
 }
 
-td, th ,p{
+td, th ,p {
     border: 1px solid #dddddd;
-    text-align: left;
+    text-align: center;
     padding: 8px;
 }
 
@@ -17,12 +18,11 @@ tr:nth-child(even) {
 }
 </style>
 </head>
-
-
-
 <p id="notice"><%= notice %></p>
 
+<h1> Are you sure, my lad ?</h1>
 <p>
+<%= form_tag :action => 'createWCookies' do %>
   <strong>Login:</strong>
   <%= @admin.login %>
 </p>
@@ -37,8 +37,15 @@ tr:nth-child(even) {
   <%= @admin.nome %>
 </p>
 <p>
-  <strong>Email:</strong>
+  <strong>email:</strong>
   <%= @admin.email %>
 </p>
-<%= link_to 'Edit', edit_admin_path(@admin) %> |
-<%= link_to 'Back', admins_path %>
+
+<%= submit_tag "Confirma criação" %>
+<% end -%>
+<%= link_to 'Quero reinserir os dados', controller: "admins", action: "new", id: @admin %>
+<% else %>
+<h1>Não logado </h1>
+<meta http-equiv="refresh" content="0; url=/" /> 
+
+<% end %> 

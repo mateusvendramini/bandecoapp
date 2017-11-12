@@ -1,5 +1,49 @@
-<h1>New Admin</h1>
 
-<%= render 'form', admin: @admin %>
+<% if not logged_in? %>
+<head>
+<style>
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 80%;
+}
 
-<%= link_to 'Back', admins_path %>
+td, th,p {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+</style>
+</head>
+<p id="notice"><%= notice %></p>
+<p><%= flash[:error] %> 
+<h1>Novo administrador</h1>
+<h2> Todos os campos são obrigatórios.</h2>
+<h2> O Login tem que ser único.</h2>
+
+<%= form_tag :action => 'createCookie' do %>
+<p><label for ="admin_login"> Login</label>
+<%= text_field :admin, :login %></p>
+<p><label for ="admin_senha"> Senha</label>
+<%= text_field :admin, :senha %>
+<p><label for ="admin_senha_confirmation"> Confirme a senha</label>
+<%= text_field :admin, :senha_confirmation %></p>
+<p><label for ="admin_nome"> Nome</label>
+<%= text_field :admin, :nome %>
+<p><label for ="email"> Email</label>
+<%= text_field :admin, :email %>
+
+<br>
+<%= submit_tag "Criar administrador" %>
+<% end -%>
+<%= link_to 'Voltar para lista de administradores', admins_path %>
+<% else %>
+
+<h1>Não logado </h1>
+<meta http-equiv="refresh" content="0; url=/" /> 
+
+<% end %> 
