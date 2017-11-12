@@ -17,7 +17,8 @@ tr:nth-child(even) {
 }
 </style>
 </head>
-<p id="notice"><%= @notice %></p>
+<p id="notice"><%= notice %></p>
+<p><%= flash[:error] %> 
 <h1>Novo administrador</h1>
 <h2> Todos os campos são obrigatórios.</h2>
 <h2> O Login tem que ser único.</h2>

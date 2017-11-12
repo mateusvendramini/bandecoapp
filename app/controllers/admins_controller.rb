@@ -131,6 +131,23 @@ class AdminsController < ApplicationController
         else
         #pede reinserção dos dados  
            format.html { render :new, notice: 'This`s not going to go.' }
+           format.json { render json: @admin.errors, status: :unprocessable_entity }
+           s = ""
+           if (logins.include?(cookies[:login]))
+            s = s +  "Login não é único <br>"
+           end 
+           if((cookies[:senha] != cookies[:senha_confirmation]))
+            s = s + "Senhas não batem"
+           end 
+           flash[:error] =  s
+            
+          #render(
+          #html: "<script>alert('No users!')</script>".html_safe,
+          #layout: 'application'
+          # )
+
+    #  end      
+
           #format.html { render :createCookie, notice: 'Admin was not validated.'}
           format.json { render json: @admin.errors, status: :unprocessable_entity }
         end
