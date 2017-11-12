@@ -1,4 +1,5 @@
 <p id="notice"><%= notice %></p>
+<% if not logged_in? %>
 <head>
 <style>
 table {
@@ -37,6 +38,7 @@ tr:nth-child(even) {
 
 
   <tbody>
+    <p><%= flash[:error] %></p> 
     <%= form_tag :action => 'select_multiple' do %>
     <% for admin in @admins %>
       <tr>
@@ -58,3 +60,8 @@ tr:nth-child(even) {
 
 <% end %>
 <%= link_to 'New Admin', new_admin_path %>
+<% else %>
+<h1>Não logado </h1>
+<meta http-equiv="refresh" content="0; url=/" /> 
+
+<% end %> 

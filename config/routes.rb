@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'sessions/new'
+
   get 'pagina_admin/admin'
   get 'admins/index'
   post 'admins/create'

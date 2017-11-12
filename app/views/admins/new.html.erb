@@ -1,3 +1,5 @@
+
+<% if not logged_in? %>
 <head>
 <style>
 table {
@@ -39,3 +41,9 @@ tr:nth-child(even) {
 <%= submit_tag "Criar administrador" %>
 <% end -%>
 <%= link_to 'Voltar para lista de administradores', admins_path %>
+<% else %>
+
+<h1>Não logado </h1>
+<meta http-equiv="refresh" content="0; url=/" /> 
+
+<% end %> 

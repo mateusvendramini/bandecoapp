@@ -63,6 +63,7 @@ class AdminsController < ApplicationController
 
       @admin = Admin.new(id: cookies[:id],login: cookies[:login],senha: cookies[:senha],nome: cookies[:nome],email: cookies[:email] )
       @admin.save
+      flash[:error] = "adm adicionado com sucesso"
       #respond_to do |format|
       #  format.html { render :new, notice: 'Admin was successfully created. Now you can add another Admin' }
       
@@ -188,11 +189,17 @@ class AdminsController < ApplicationController
       Admin.find(f).delete
     
     end
+    flash[:error] = "Adms deletados com sucesso"
     redirect_to :action => 'index'
   end
 
   def select_multiple
     @admins = Admin.find(params[:admin_ids])
+  end
+  def validation
+    if(params[:senha] == cookies[:senha])
+      delete_multiple
+    end
   end
 
 

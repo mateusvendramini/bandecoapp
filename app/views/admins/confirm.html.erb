@@ -1,3 +1,4 @@
+<% if not logged_in? %>
 <head>
 <style>
 table {
@@ -43,3 +44,8 @@ tr:nth-child(even) {
 <%= submit_tag "Confirma criação" %>
 <% end -%>
 <%= link_to 'Quero reinserir os dados', controller: "admins", action: "new", id: @admin %>
+<% else %>
+<h1>Não logado </h1>
+<meta http-equiv="refresh" content="0; url=/" /> 
+
+<% end %> 
