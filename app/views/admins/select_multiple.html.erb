@@ -1,3 +1,4 @@
+<% if logged_in? %>
 <head>
 <style>
 table {
@@ -62,3 +63,8 @@ tr:nth-child(even) {
 <% end %>
 
 <%= link_to 'Voltar para home', controller: "admins", action: "index" %>
+<% else %>
+<h1>Não logado </h1>
+<meta http-equiv="refresh" content="0; url=/" /> 
+
+<% end %> 

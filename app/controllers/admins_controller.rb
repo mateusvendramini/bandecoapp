@@ -1,5 +1,6 @@
 class AdminsController < ApplicationController
   before_action :set_admin, only: [:show, :edit, :update, :destroy]
+  include SessionsHelper
 
   # GET /admins
   # GET /admins.json
@@ -184,7 +185,7 @@ class AdminsController < ApplicationController
     redirect_to :action => 'index'
   end
   def delete_multiple
-    if validation
+    if validation params[:admin][:senha] and not params[:admin_ids].nil?
       params[:admin_ids].each do |f|
         Admin.find(f).delete
       end
@@ -203,8 +204,9 @@ class AdminsController < ApplicationController
   def select_multiple
     @admins = Admin.find(params[:admin_ids])
   end
-  def validation
-    (params[:senha] == session[:senha])
+  def validation (senha)
+    @current_admin = current_admin
+    return senha == @current_admin.senha
   end
 
 
