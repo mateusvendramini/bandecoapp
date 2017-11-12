@@ -30,6 +30,7 @@ class AdminsController < ApplicationController
       if @admin.save
         format.html { redirect_to @admin, notice: 'Admin was successfully created.' }
         format.json { render :show, status: :created, location: @admin }
+        redirect_to @admin #adicionei - Listing 7.28 (Maicon)
       else
         format.html { render :new }
         format.json { render json: @admin.errors, status: :unprocessable_entity }
