@@ -1,7 +1,30 @@
 <p id="notice"><%= notice %></p>
+<% if not logged_in? %>
+<head>
+<style>
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 80%;
+}
 
-<h1>Admins</h1>
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
 
+p, h1,h2,h3,h4{
+    
+    text-align: center;
+    padding: 8px;
+}
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+</style>
+</head>
+<h1>Administradores</h1>
 <table>
   <thead>
     <tr>
@@ -12,20 +35,33 @@
     </tr>
   </thead>
 
+
+
   <tbody>
-    <% @admins.each do |admin| %>
+    <p><%= flash[:error] %></p> 
+    <%= form_tag :action => 'select_multiple' do %>
+    <% for admin in @admins %>
       <tr>
         <td><%= admin.login %></td>
-        <td><%= admin.senha %></td>
         <td><%= admin.nome %></td>
         <td><%= link_to 'Show', admin %></td>
         <td><%= link_to 'Edit', edit_admin_path(admin) %></td>
-        <td><%= link_to 'Destroy', admin, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to "Delete", {:action => 'delete', :id => admin.id}, :confirm => "Are you sure you want to delete this item?" %></</td>
+        <td><%=check_box_tag "admin_ids[]", admin.id%></td>
+
+      
       </tr>
     <% end %>
+    <h3 >Para deletar administradores, selecionar os registros e apertar o botão deletar</h3>
+    <%= submit_tag "Delete admin(s)" %>
   </tbody>
 </table>
-
 <br>
 
+<% end %>
 <%= link_to 'New Admin', new_admin_path %>
+<% else %>
+<h1>Não logado </h1>
+<meta http-equiv="refresh" content="0; url=/" /> 
+
+<% end %> 
