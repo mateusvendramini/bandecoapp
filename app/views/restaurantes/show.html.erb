@@ -1,27 +1,42 @@
+<head>
+<style>
+{
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+p {
+    padding: 8px;
+    border-bottom: 1px solid #ddd;
+}
+
+p:nth-child(even){background-color: #f2f2f2;}
+
+p:hover {background-color: #ddd;}
+
+a:link, a:visited {
+    background-color: #f44336;
+    color: white;
+    padding: 14px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+}
+
+
+a:hover, a:active {
+    background-color: red;
+}
+
+</style>
+</head>
+
 <p id="notice"><%= notice %></p>
 
 <h3 style="text-align:center;">Informações do restaurante</h3>
 
-    <head>
-    <style>
-    p {
-    font-family: arial, sans-serif;
-    border-collapse: collapse;
-    width: 100%;
-    }
-
-    p {
-    border: 1px solid #dddddd;
-    text-align: left;
-    padding: 8px;
-    }
-
-    p:nth-child(even) {
-    background-color: #dddddd;
-    } 
-    </style>
-    </head>
-
+   
 <p>
   <strong>Nome:</strong>
   <%= @restaurante.nome %>
@@ -47,5 +62,5 @@
   <%= @restaurante.foto %>
 </p>
 
-<%= link_to 'Editar', edit_restaurante_path(@restaurante) %> |
-<%= link_to 'Voltar', restaurantes_path %>
+<p style="text-align:center;"><%= link_to 'Editar', edit_restaurante_path(@restaurante) %></p>
+<p style="text-align:center;"><%= link_to 'Voltar', restaurantes_path %></p>
