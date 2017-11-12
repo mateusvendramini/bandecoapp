@@ -1,24 +1,40 @@
-<p id="notice"><%= notice %></p>
-<h1>New Admin</h1>
+<head>
+<style>
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 80%;
+}
+
+td, th,p {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+</style>
+</head>
+<p id="notice"><%= @notice %></p>
+<h1>Novo administrador</h1>
 <h2> Todos os campos são obrigatórios.</h2>
 <h2> O Login tem que ser único.</h2>
 
 <%= form_tag :action => 'createCookie' do %>
-<p><label for ="admin_login"> login</label>
+<p><label for ="admin_login"> Login</label>
 <%= text_field :admin, :login %></p>
 <p><label for ="admin_senha"> Senha</label>
 <%= text_field :admin, :senha %>
-<p><label for ="admin_senha_confirmation"> Confirme sua senha</label>
+<p><label for ="admin_senha_confirmation"> Confirme a senha</label>
 <%= text_field :admin, :senha_confirmation %></p>
-<p><label for ="admin_nome"> nome</label>
+<p><label for ="admin_nome"> Nome</label>
 <%= text_field :admin, :nome %>
-<p><label for ="email"> email</label>
+<p><label for ="email"> Email</label>
 <%= text_field :admin, :email %>
 
-
-<%=check_box_tag "admin_ids[]", 0 %></td>
-
-
-<%= submit_tag "CreateCookie" %>
+<br>
+<%= submit_tag "Criar administrador" %>
 <% end -%>
-<%= link_to 'Back', admins_path %>
+<%= link_to 'Voltar para lista de administradores', admins_path %>

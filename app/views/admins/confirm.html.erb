@@ -1,4 +1,24 @@
+<head>
+<style>
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 80%;
+}
+
+td, th ,p {
+    border: 1px solid #dddddd;
+    text-align: center;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+</style>
+</head>
 <p id="notice"><%= notice %></p>
+
 <h1> Are you sure, my lad ?</h1>
 <p>
 <%= form_tag :action => 'createWCookies' do %>
@@ -20,6 +40,6 @@
   <%= @admin.email %>
 </p>
 
-<%= submit_tag "createWCookie" %>
+<%= submit_tag "Confirma criação" %>
 <% end -%>
-<%= link_to 'Im not sure, my memer', controller: "admins", action: "new", id: @admin %>
+<%= link_to 'Quero reinserir os dados', controller: "admins", action: "new", id: @admin %>

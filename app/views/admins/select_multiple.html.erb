@@ -1,4 +1,29 @@
-<p id="notice"><%= notice %></p>
+<head>
+<style>
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 80%;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+h1,h2{
+  text-align: center;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+</style>
+</head>
+
+
+
+<p id="notice"><%= @notice %></p>
 
 <h1>Admins</h1>
 <table>
@@ -27,11 +52,11 @@
       
       </tr>
     <% end %>
-    <%= submit_tag "Delete checked" %>
+    <%= submit_tag "Deleta administradores marcados" %>
   </tbody>
 </table>
 <br>
 
 <% end %>
 
-<%= link_to 'Im not sure, my memer', controller: "admins", action: "index" %>
+<%= link_to 'Voltar para home', controller: "admins", action: "index" %>

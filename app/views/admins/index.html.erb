@@ -1,6 +1,29 @@
 <p id="notice"><%= notice %></p>
+<head>
+<style>
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 80%;
+}
 
-<h1>Admins</h1>
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+p, h1,h2,h3,h4{
+    
+    text-align: center;
+    padding: 8px;
+}
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+</style>
+</head>
+<h1>Administradores</h1>
 <table>
   <thead>
     <tr>
@@ -27,7 +50,8 @@
       
       </tr>
     <% end %>
-    <%= submit_tag "Delete checked" %>
+    <h3 >Para deletar administradores, selecionar os registros e apertar o botão deletar</h3>
+    <%= submit_tag "Delete admin(s)" %>
   </tbody>
 </table>
 <br>

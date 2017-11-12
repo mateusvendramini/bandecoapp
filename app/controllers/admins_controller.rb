@@ -63,10 +63,12 @@ class AdminsController < ApplicationController
 
       @admin = Admin.new(id: cookies[:id],login: cookies[:login],senha: cookies[:senha],nome: cookies[:nome],email: cookies[:email] )
       @admin.save
-      respond_to do |format|
-        format.html { render :new, notice: 'Admin was successfully created. Now you can add another Admin' }
-        format.json { render :confirm, status: :created, location: @admin }
-      end
+      #respond_to do |format|
+      #  format.html { render :new, notice: 'Admin was successfully created. Now you can add another Admin' }
+      
+      redirect_to new_admin_path
+        #format.json { render :confirm, status: :created, location: @admin }
+      #end
       #respond_to do |format|
        # if @admin.save
         #    #if not Admin.login.include?(@admin.login)
@@ -130,7 +132,7 @@ class AdminsController < ApplicationController
         #pede reinserção dos dados  
            format.html { render :new, notice: 'This`s not going to go.' }
           #format.html { render :createCookie, notice: 'Admin was not validated.'}
-          #format.json { render json: @admin.errors, status: :unprocessable_entity }
+          format.json { render json: @admin.errors, status: :unprocessable_entity }
         end
       end
     
