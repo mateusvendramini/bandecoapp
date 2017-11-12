@@ -185,21 +185,27 @@ class AdminsController < ApplicationController
     redirect_to :action => 'index'
   end
   def delete_multiple
-    params[:admin_ids].each do |f|
-      Admin.find(f).delete
+    if validation
+      params[:admin_ids].each do |f|
+        Admin.find(f).delete
+      end
+      flash[:error] = "Adms deletados com sucesso"
+    redirect_to :action => 'index'  
+    else
+    flash[:error] = "senha incorreta"
+    redirect_to :action => 'index'
+    
+    end    
     
     end
-    flash[:error] = "Adms deletados com sucesso"
-    redirect_to :action => 'index'
-  end
+    
+  
 
   def select_multiple
     @admins = Admin.find(params[:admin_ids])
   end
   def validation
-    if(params[:senha] == cookies[:senha])
-      delete_multiple
-    end
+    (params[:senha] == session[:senha])
   end
 
 

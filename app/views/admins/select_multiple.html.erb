@@ -52,7 +52,9 @@ tr:nth-child(even) {
       
       </tr>
     <% end %>
-    <%= submit_tag "Deleta administradores marcados" %>
+    <p><label for ="admin_senha"> Confirme sua senha</label></p>
+    <%= text_field :admin, :senha %></p>
+    <%= submit_tag  "Deleta administradores marcados" %>
   </tbody>
 </table>
 <br>
