@@ -1,5 +1,5 @@
 class CreateFilas < ActiveRecord::Migration[5.1]
-	belongs_to :restaurante
+	
   def change
 
     create_table :filas do |t|
