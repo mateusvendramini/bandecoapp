@@ -1,5 +1,4 @@
-<% if logged_in? %>
-
+<% if  logged_in? %>
 <!DOCTYPE html>
 <html>
   <head>
@@ -21,6 +20,9 @@
 
     <div class="center jumbotron">
 
+<h1> Confirme os dados</h1>
+
+<%= form_tag :action => 'createWCookies' do %>
 <p>
   <strong>Login:</strong>
   <%= @admin.login %>
@@ -36,11 +38,13 @@
   <%= @admin.nome %>
 </p>
 <p>
-  <strong>Email:</strong>
+  <strong>email:</strong>
   <%= @admin.email %>
 </p>
-<%= link_to 'Edit', edit_admin_path(@admin) %> |
-<%= link_to 'Back', admins_path %>
+
+<%= submit_tag "Cadastrar" %>
+<% end -%>
+<%= link_to 'voltar', controller: "admins", action: "new", id: @admin %>
 
 </div>
 
@@ -55,8 +59,6 @@
 
   </body>
 </html>
-
-
 <% else %>
 <h1>Não logado </h1>
 <meta http-equiv="refresh" content="0; url=/" /> 

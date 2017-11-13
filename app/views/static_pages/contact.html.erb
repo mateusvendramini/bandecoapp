@@ -1,5 +1,3 @@
-<% if logged_in? %>
-
 <!DOCTYPE html>
 <html>
   <head>
@@ -18,31 +16,13 @@
 
 
 
-
-    <div class="center jumbotron">
-
-<p>
-  <strong>Login:</strong>
-  <%= @admin.login %>
-</p>
-
-<p>
-  <strong>Senha:</strong>
-  <%= @admin.senha %>
-</p>
-
-<p>
-  <strong>Nome:</strong>
-  <%= @admin.nome %>
-</p>
-<p>
-  <strong>Email:</strong>
-  <%= @admin.email %>
-</p>
-<%= link_to 'Edit', edit_admin_path(@admin) %> |
-<%= link_to 'Back', admins_path %>
-
-</div>
+	<% provide(:title, 'Contact') %>
+  	<h1>Contact</h1>
+  	<p>
+    	Contact the Ruby on Rails Tutorial about the sample app at the
+    	<a href="http://www.railstutorial.org/contact">contact page</a>.
+  	</p>
+   
 
 
 
@@ -56,9 +36,3 @@
   </body>
 </html>
 
-
-<% else %>
-<h1>Não logado </h1>
-<meta http-equiv="refresh" content="0; url=/" /> 
-
-<% end %> 

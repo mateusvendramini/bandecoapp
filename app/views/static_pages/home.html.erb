@@ -1,5 +1,3 @@
-<% if logged_in? %>
-
 <!DOCTYPE html>
 <html>
   <head>
@@ -20,28 +18,19 @@
 
 
     <div class="center jumbotron">
+  <h1>Tamanho atual das filas:</h1>
 
-<p>
-  <strong>Login:</strong>
-  <%= @admin.login %>
-</p>
+  
+  <h2>Colabore informando sua posição na fila. Acesse a página do resturante que você escolheu:</h2>
+  <%#trocar isso por algo dinâmico, like: Restaurante.each do |F|
+      link_to f.nome, path_to f, class sei lá o que é isso ... %>
+  <%= link_to "Central", '#', class: "btn btn-lg btn-primary" %>
+   <%= link_to "Química", '#', class: "btn btn-lg btn-primary" %>
+    <%= link_to "Prefeitura", '#', class: "btn btn-lg btn-primary" %>
+     <%= link_to "Física", '#', class: "btn btn-lg btn-primary" %>
 
-<p>
-  <strong>Senha:</strong>
-  <%= @admin.senha %>
-</p>
-
-<p>
-  <strong>Nome:</strong>
-  <%= @admin.nome %>
-</p>
-<p>
-  <strong>Email:</strong>
-  <%= @admin.email %>
-</p>
-<%= link_to 'Edit', edit_admin_path(@admin) %> |
-<%= link_to 'Back', admins_path %>
-
+  
+  
 </div>
 
 
@@ -57,8 +46,6 @@
 </html>
 
 
-<% else %>
-<h1>Não logado </h1>
-<meta http-equiv="refresh" content="0; url=/" /> 
 
-<% end %> 
+
+

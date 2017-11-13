@@ -1,9 +1,13 @@
 class StaticPagesController < ApplicationController
-   def show
-    @user = User.find(params[:id])
+  def home
   end
 
-  def new
-    @user = User.new
+  def help
+  end
+
+  def about
+  end
+
+  def contact
   end
 end
