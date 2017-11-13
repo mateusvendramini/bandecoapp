@@ -1,3 +1,19 @@
+
+<head>
+    <title><%= full_title(yield(:title)) %></title>
+    <%= csrf_meta_tags %>
+    <%= stylesheet_link_tag    'application', media: 'all',
+                                              'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= render 'layouts/shim' %>
+  </head>
+  <body>
+    <%= render 'layouts/header' %>
+    <div class="container">
+      <%= yield %>
+    </div>
+</body>
+
 <head>
 <style>
 {
@@ -47,12 +63,8 @@ a:hover, a:active {
 </p>
 
 <p style="text-align:center;">
-  <%= link_to 'Visualizar o Layout da fila', @restaurante.layout, :target => "_blank" %>
-</p>
-
-<p style="text-align:center;">
   <strong>Mapa:</strong><br>
-  <img src=<%= @restaurante.mapa %> width="149" height="105" /img>
+  <img src=<%= @restaurante.mapa %> width="600" height="400" /img>
 </p>
 
 <p style="text-align:center;">
@@ -60,5 +72,9 @@ a:hover, a:active {
   <img src=<%= @restaurante.foto %> width="149" height="105" /img>
 </p>
 
-<p style="text-align:center;"><%= link_to 'Editar', edit_restaurante_path(@restaurante) %></p>
 <p style="text-align:center;"><%= link_to 'Voltar', restaurantes_path %></p>
+
+ <div class="container">
+      <%= yield %>
+      <%= render 'layouts/footer' %>
+    </div>

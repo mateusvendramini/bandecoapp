@@ -1,4 +1,20 @@
 <% if  logged_in? %>
+
+<head>
+    <title><%= full_title(yield(:title)) %></title>
+    <%= csrf_meta_tags %>
+    <%= stylesheet_link_tag    'application', media: 'all',
+                                              'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= render 'layouts/shim' %>
+  </head>
+  <body>
+    <%= render 'layouts/header' %>
+    <div class="container">
+      <%= yield %>
+    </div>
+</body>
+
 <style>
 input[type=text], select {
     width: 100%;
@@ -31,7 +47,7 @@ div {
     padding: 20px;
 }
 a:link, a:visited {
-    background-color: #f44336;
+    background-color: black;
     color: white;
     padding: 14px 25px;
     text-align: center;
@@ -41,7 +57,7 @@ a:link, a:visited {
 
 
 a:hover, a:active {
-    background-color: red;
+    background-color: black;
 }
 </style>
 
@@ -50,6 +66,11 @@ a:hover, a:active {
 <%= render 'form', restaurante: @restaurante %>
 
 <p style="text-align:center;"><%= link_to 'Voltar', restaurantes_path %></p>
+
+ <div class="container">
+      <%= yield %>
+      <%= render 'layouts/footer' %>
+    </div>
 
 <% else %>
 <h1>Não logado </h1>

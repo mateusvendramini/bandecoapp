@@ -1,7 +1,23 @@
-<% if  logged_in? %>
 
 <!DOCTYPE html>
 <html>
+
+<head>
+    <title><%= full_title(yield(:title)) %></title>
+    <%= csrf_meta_tags %>
+    <%= stylesheet_link_tag    'application', media: 'all',
+                                              'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= render 'layouts/shim' %>
+  </head>
+  <body>
+    <%= render 'layouts/header' %>
+    <div class="container">
+      <%= yield %>
+    </div>
+</body>
+
+
 <body>
 
 <p style="text-align:center;">Layout para o bandejão da física</p>
@@ -31,11 +47,12 @@
   <area shape="rect" coords="280,350,310,400" alt="Sun" href=img_reserva.htm>
 </map>
 
+
+ <div class="container">
+      <%= yield %>
+      <%= render 'layouts/footer' %>
+    </div>
+    
 </body>
 </html>
 
-<% else %>
-<h1>Não logado </h1>
-<meta http-equiv="refresh" content="0; url=/" /> 
-
-<% end %> 
