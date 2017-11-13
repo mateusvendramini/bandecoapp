@@ -37,29 +37,27 @@ a:hover, a:active {
 <h3 style="text-align:center;">Informações do restaurante</h3>
 
    
-<p>
+<p style="text-align:center;">
   <strong>Nome:</strong>
   <%= @restaurante.nome %>
 </p>
 
-<p>
-  <strong>Cardapio:</strong>
-  <%= @restaurante.cardapio %>
+<p style="text-align:center;">
+  <%= link_to 'Clique para ver o cardápio da semana', @restaurante.cardapio, :target => "_blank" %>
 </p>
 
-<p>
-  <strong>Layout:</strong>
-  <%= @restaurante.layout %>
+<p style="text-align:center;">
+  <%= link_to 'Visualizar o Layout da fila', @restaurante.layout, :target => "_blank" %>
 </p>
 
-<p>
-  <strong>Mapa:</strong>
-  <%= @restaurante.mapa %>
+<p style="text-align:center;">
+  <strong>Mapa:</strong><br>
+  <img src=<%= @restaurante.mapa %> width="149" height="105" /img>
 </p>
 
-<p>
-  <strong>Foto:</strong>
-  <%= @restaurante.foto %>
+<p style="text-align:center;">
+  <strong>Foto:</strong><br>
+  <img src=<%= @restaurante.foto %> width="149" height="105" /img>
 </p>
 
 <p style="text-align:center;"><%= link_to 'Editar', edit_restaurante_path(@restaurante) %></p>
