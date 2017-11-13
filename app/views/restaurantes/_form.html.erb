@@ -1,3 +1,5 @@
+<% if  logged_in? %>
+
 <%= form_with(model: restaurante, local: true) do |form| %>
   <% if restaurante.errors.any? %>
     <div id="error_explanation">
@@ -63,3 +65,9 @@
     <%= form.submit 'Concluir' %>
   </div>
 <% end %>
+
+<% else %>
+<h1>Não logado </h1>
+<meta http-equiv="refresh" content="0; url=/" /> 
+
+<% end %> 

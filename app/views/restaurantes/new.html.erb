@@ -1,3 +1,4 @@
+<% if  logged_in? %>
 <style>
 input[type=text], select {
     width: 100%;
@@ -49,3 +50,9 @@ a:hover, a:active {
 <%= render 'form', restaurante: @restaurante %>
 
 <p style="text-align:center;"><%= link_to 'Voltar', restaurantes_path %></p>
+
+<% else %>
+<h1>Não logado </h1>
+<meta http-equiv="refresh" content="0; url=/" /> 
+
+<% end %> 
