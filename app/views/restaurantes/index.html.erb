@@ -61,8 +61,8 @@ a:hover, a:active {
     <% @restaurantes.each do |restaurante| %>
       <tr>
         <td><%= restaurante.nome %></td>
-        <td><%= link_to 'Link para Cardápio', restaurante.cardapio, :target => "_blank" %></td>
-        <td><%= link_to 'Link para o layout da fila', restaurante.layout, :target => "_blank" %></td>
+        <td><%= link_to 'Cardápio', restaurante.cardapio, :target => "_blank" %></td>
+        <td><%= link_to 'Layout da fila', restaurante.layout, :target => "_blank" %></td>
         <td><img src=<%=restaurante.mapa %> width="149" height="105" /img></td>
         <td><img src=<%=restaurante.foto %> width="149" height="105" /img></td>
         <td><%= link_to 'Mostrar informações', restaurante %></td>
