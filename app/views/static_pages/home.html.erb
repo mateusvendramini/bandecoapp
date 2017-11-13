@@ -27,7 +27,14 @@
   <% Restaurante.all.each do |f| %>
       <%= link_to f.nome, f, class: "btn btn-lg btn-primary"  %>
       <% if !Fila.find_by(id_restaurante: f.id).nil? %>
-        <p> Estado da fila <%= f.nome %><%= Fila.find_by(id_restaurante: f.id).id %></p>
+        <% case Fila.find_by(id_restaurante: f.id).estado_fila %>
+        <% when 0..5 %>
+        <p><%= "Fila Pequena"%></p>
+        <% when 5..10 %>
+        <p><%= "Fila Razoável"%></p>
+        <% else %>
+        <p><strong><%= "Fila Grande"%></strong></p>
+        <%end%>
       <%end%>
       <%end%>
 

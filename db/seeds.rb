@@ -5,3 +5,34 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+#reseta db caso necessário
+Admin.all.each do | f| 
+	f.destroy
+end
+
+Restaurante.all.each do | f| 
+	f.destroy
+end
+Fila.all.each do | f| 
+	f.destroy
+end
+DadoInserido.all.each do |f|
+	f.destroy
+end
+
+
+
+
+Admin.create(id: 10, login: "carlinhos", senha: "123", nome: "carlinhos")
+#cria primeio adm
+lista_nome = ["fisica", "central", "prefeitura", "quimica"]
+
+lista_nome.each do |f|
+	Restaurante.create(nome: f, cardapio: f, layout: f, mapa: f, foto: f)
+end
+
+#Restaurante.create(nome: "fisica", cardapio: "nao importa", layout: "nao importa", mapa: "nao importa", foto: "nao importa")
+
+for Restaurante.all.each do |f| #associa uma fila a um restaurante
+	Fila.create(id_restaurante: f.id, estado_fila: "0".to_i)
+end
