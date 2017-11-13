@@ -24,10 +24,12 @@
   <h2>Colabore informando sua posição na fila. Acesse a página do resturante que você escolheu:</h2>
   <%#trocar isso por algo dinâmico, like: Restaurante.each do |F|
       link_to f.nome, path_to f, class sei lá o que é isso ... %>
-  <%= link_to "Central", '#', class: "btn btn-lg btn-primary" %>
-   <%= link_to "Química", '#', class: "btn btn-lg btn-primary" %>
-    <%= link_to "Prefeitura", '#', class: "btn btn-lg btn-primary" %>
-     <%= link_to "Física", '#', class: "btn btn-lg btn-primary" %>
+  <% Restaurante.all.each do |f| %>
+      <%= link_to f.nome, f, class: "btn btn-lg btn-primary"  %>
+      <% if !Fila.find_by(id_restaurante: f.id).nil? %>
+        <p> Estado da fila <%= f.nome %><%= Fila.find_by(id_restaurante: f.id).id %></p>
+      <%end%>
+      <%end%>
 
   
   
