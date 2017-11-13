@@ -22,10 +22,12 @@
 
 <p style="text-align:center;">Layout para o bandejão da física</p>
 
-<img src="/assets/bandejao_fisica_mao.jpg" width=900 height=600 usemap="#fisicamapa"/>
+<p style="text-align:center;">
+  <img src="/assets/bandejao_fisica_mao.jpg" width=900 height=600 usemap="#fisicamapa"/></p>
 
 <map name="fisicamapa">
-  <area shape="rect" coords="700,220,760,250" alt="Sun" href=img_reserva.htm>
+  <area shape="rect" coords="700,220,760,250" alt="0" href=/dado_inseridos/new?dado_inseridos[id]=0&dado_inseridos[id_fila]=29&dado_inseridos[posicao]=0>
+  <area shape="rect" coords="700,220,760,250" alt="1" href=/dado_inseridos/new?dado_inseridos[id]=1&dado_inseridos[id_fila]=29&dado_inseridos[posicao]=1>
   <area shape="rect" coords="700,250,760,280" alt="Sun" href=img_reserva.htm>
   <area shape="rect" coords="700,280,760,310" alt="Sun" href=img_reserva.htm>
   <area shape="rect" coords="700,310,760,340" alt="Sun" href=img_reserva.htm>
@@ -47,12 +49,11 @@
   <area shape="rect" coords="280,350,310,400" alt="Sun" href=img_reserva.htm>
 </map>
 
-
  <div class="container">
       <%= yield %>
       <%= render 'layouts/footer' %>
     </div>
-    
+
 </body>
 </html>
 

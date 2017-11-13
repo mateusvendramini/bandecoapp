@@ -25,7 +25,11 @@ class RestaurantesController < ApplicationController
   # POST /restaurantes.json
   def create
     @restaurante = Restaurante.new(restaurante_params)
-
+    id = 0
+    while Fila.find_by(id: id)
+      id = id +1
+    end
+    Fila.new(id: id, estado_fila: 0, id_restaurante: @restaurante.id).save
     respond_to do |format|
       if @restaurante.save
         format.html { redirect_to @restaurante, notice: 'Restaurante foi criado com sucesso' }

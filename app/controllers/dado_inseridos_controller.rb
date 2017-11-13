@@ -1,4 +1,5 @@
 class DadoInseridosController < ApplicationController
+  
   before_action :set_dado_inserido, only: [:show, :edit, :update, :destroy]
 
   # GET /dado_inseridos
