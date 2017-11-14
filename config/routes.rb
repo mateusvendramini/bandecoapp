@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   get 'restaurantes/img_reserva'
 
   get 'dado_inseridos/delete'
-
+  get 'dado_inseridos/create_url'
   get 'sessions/new'
 
   root 'static_pages#home'
