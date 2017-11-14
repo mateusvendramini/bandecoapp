@@ -10,7 +10,8 @@ Rails.application.routes.draw do
   get  'restaurantes/layout_central'
   get 'restaurantes/layout_fisica'
   get 'restaurantes/img_reserva'
-  get 'dado_inseridos/create', :controller => 'dado_inseridos', :action => 'create', :action => 'show', :conditions => { :method => :get }
+
+  get 'dado_inseridos/delete'
 
   get 'sessions/new'
 

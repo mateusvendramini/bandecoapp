@@ -38,8 +38,13 @@ class DadoInseridosController < ApplicationController
     end
   end
 
+  def delete
+    DadoInserido.find(params[:id]).destroy
+    redirect_to :action => 'index'
+  end
+
   # PATCH/PUT /dado_inseridos/1
-  # PATCH/PUT /dado_inseridos/1.json
+  # PATCH/PUT /dado_inseridos/1.jsons
   def update
     respond_to do |format|
       if @dado_inserido.update(dado_inserido_params)
