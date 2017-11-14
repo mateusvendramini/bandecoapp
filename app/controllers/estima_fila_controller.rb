@@ -4,8 +4,10 @@ class EstimaFilaController < ApplicationController
   	i = 0
   	Restaurante.all.each do |f|
   		#para cada restaurante, listar dados inseridos
+      flash[:error]= "Dado inserido com sucesso e atualizado no banco de dados"
   		data = []
   		DadoInserido.all.order(created_at: :desc).each do |h|
+        if !Fila.find_by(id: h.id_fila).nil? # só faz se a fila não for nula
   			if Fila.find_by(id: h.id_fila).id_restaurante == f.id #verifica se o dado inserido corresponde ao restaurante
   				if i < 5
   					data.append(h)
@@ -13,6 +15,7 @@ class EstimaFilaController < ApplicationController
   				end
   			end
   		end #agora para cada restaurante, temos um vetor com pelo menos as ultimas posicoes
+      end
   		media = 0
   		i = 0
   		data.each do |j|
