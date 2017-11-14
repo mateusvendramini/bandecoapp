@@ -80,7 +80,7 @@ a:hover, a:active {
       <tr>
         <td><%= restaurante.nome %></td>
         <td><%= link_to 'Cardápio', restaurante.cardapio, :target => "_blank" %></td>
-        <td><%= link_to 'Mapa/Layout', restaurante.layout, :target => "_blank" %></td>
+        <td><%= link_to 'Mapa/Layout', restaurante.mapa, :target => "_blank" %></td>
         <td><img src=<%=restaurante.foto %> width="149" height="105" /img></td>
         <td><%= link_to 'Editar', edit_restaurante_path(restaurante) %></td>
         <td><%= link_to 'Apagar restaurante', {:action => 'delete', :id => restaurante.id}, data: { confirm: "Você tem certeza?" } %></td>

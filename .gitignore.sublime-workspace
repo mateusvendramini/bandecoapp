@@ -27,7 +27,7 @@
 			"file": ".gitignore",
 			"settings":
 			{
-				"buffer_size": 536,
+				"buffer_size": 500,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -184,15 +184,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 536,
+						"buffer_size": 500,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								376,
-								376
+								337,
+								44
 							]
 						],
 						"settings":

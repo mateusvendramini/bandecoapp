@@ -25,29 +25,16 @@
 <p style="text-align:center;">
   <img src="/assets/bandejao_fisica_mao.jpg" width=900 height=600 usemap="#fisicamapa"/></p>
 
-<map name="fisicamapa">
-  <area shape="rect" coords="700,220,760,250" alt="0" <%= DadoInserido.create(id_fila: 29, posicao: 0) %>>
-  <area shape="rect" coords="700,250,760,280" alt="1" <%= DadoInserido.create(id_fila: 29, posicao: 1) %>>
-  <area shape="rect" coords="700,280,760,310" alt="2" <%= DadoInserido.create(id_fila: 29, posicao: 2) %>>
-  <area shape="rect" coords="700,310,760,340" alt="3" <%= DadoInserido.create(id_fila: 29, posicao: 3) %>>
-  <area shape="rect" coords="700,340,760,370" alt="4" <%= DadoInserido.create(id_fila: 29, posicao: 4) %>>
-  <area shape="rect" coords="700,370,760,400" alt="5" <%= DadoInserido.create(id_fila: 29, posicao: 5) %>>
-  <area shape="rect" coords="670,350,700,400" alt="6" <%= DadoInserido.create(id_fila: 29, posicao: 6) %>>
-  <area shape="rect" coords="640,350,670,400" alt="7" <%= DadoInserido.create(id_fila: 29, posicao: 7) %>>
-  <area shape="rect" coords="610,350,640,400" alt="8" <%= DadoInserido.create(id_fila: 29, posicao: 8) %>>
-  <area shape="rect" coords="580,350,610,400" alt="9" <%= DadoInserido.create(id_fila: 29, posicao: 9) %>>
-  <area shape="rect" coords="550,350,580,400" alt="10" <%= DadoInserido.create(id_fila: 29, posicao: 10) %>>
-  <area shape="rect" coords="520,350,550,400" alt="11" <%= DadoInserido.create(id_fila: 29, posicao: 11) %>>
-  <area shape="rect" coords="490,350,520,400" alt="12" <%= DadoInserido.create(id_fila: 29, posicao: 12) %>>
-  <area shape="rect" coords="460,350,490,400" alt="13" <%= DadoInserido.create(id_fila: 29, posicao: 13) %>>
-  <area shape="rect" coords="430,350,460,400" alt="14" <%= DadoInserido.create(id_fila: 29, posicao: 14) %>>
-  <area shape="rect" coords="400,350,430,400" alt="15" <%= DadoInserido.create(id_fila: 29, posicao: 15) %>>
-  <area shape="rect" coords="370,350,400,400" alt="16" <%= DadoInserido.create(id_fila: 29, posicao: 16) %>>
-  <area shape="rect" coords="340,350,370,400" alt="17" <%= DadoInserido.create(id_fila: 29, posicao: 17) %>>
-  <area shape="rect" coords="310,350,340,400" alt="18" <%= DadoInserido.create(id_fila: 29, posicao: 18) %>>
-  <area shape="rect" coords="280,350,310,400" alt="19" <%= DadoInserido.create(id_fila: 29, posicao: 19) %>>
+<%= var = Restaurante.find_by(nome: "Física").layout.split(";") %>
+  <map name="fisicamapa">
+    <%= i = 0 %>
+    <%= var.each do |aux|%>
+        <area shape="rect" coords=<%=aux%> alt= <%=i%> &  <%= DadoInserido.create(id_fila: Restaurante.find_by(nome: "Física").id, posicao: i ) %>>
+        <%= i = i + 1 %>
+    <% end %>
 
-</map>
+
+  </map>
 
  <div class="container">
       <%= yield %>
