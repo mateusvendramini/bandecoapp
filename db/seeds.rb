@@ -23,7 +23,7 @@ end
 
 
 
-Admin.create(id: 10, login: "carlinhos", senha: "123", nome: "carlinhos")
+Admin.create( login: "carlinhos", senha: "123", nome: "carlinhos")
 #cria primeio adm
 lista_nome = [ "central", "prefeitura", "quimica"]
 
