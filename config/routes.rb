@@ -11,6 +11,8 @@ Rails.application.routes.draw do
   get 'restaurantes/layout_fisica'
   get 'restaurantes/img_reserva'
 
+  get 'dado_inseridos/delete'
+
   get 'sessions/new'
 
   root 'static_pages#home'
