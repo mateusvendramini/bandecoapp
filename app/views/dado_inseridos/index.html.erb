@@ -20,7 +20,7 @@
         <td><%= dado_inserido.horario %></td>
         <td><%= link_to 'Show', dado_inserido %></td>
         <td><%= link_to 'Edit', edit_dado_inserido_path(dado_inserido) %></td>
-        <td><%= link_to 'Destroy', dado_inserido, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Apagar', {:action => 'delete', :id => dado_inserido.id}, data: { confirm: "Você tem certeza?" } %></td>
       </tr>
     <% end %>
   </tbody>

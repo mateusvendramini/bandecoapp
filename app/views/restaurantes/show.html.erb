@@ -1,52 +1,4 @@
 
-<head>
-    <title><%= full_title(yield(:title)) %></title>
-    <%= csrf_meta_tags %>
-    <%= stylesheet_link_tag    'application', media: 'all',
-                                              'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <%= render 'layouts/shim' %>
-  </head>
-  <body>
-    <%= render 'layouts/header' %>
-    <div class="container">
-      <%= yield %>
-    </div>
-</body>
-
-<head>
-<style>
-{
-    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
-    border-collapse: collapse;
-    width: 100%;
-}
-
-p {
-    padding: 8px;
-    border-bottom: 1px solid #ddd;
-}
-
-p:nth-child(even){background-color: #f2f2f2;}
-
-p:hover {background-color: #ddd;}
-
-a:link, a:visited {
-    background-color: #f44336;
-    color: white;
-    padding: 14px 25px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-}
-
-
-a:hover, a:active {
-    background-color: red;
-}
-
-</style>
-</head>
 
 <p id="notice"><%= notice %></p>
 
@@ -64,8 +16,14 @@ a:hover, a:active {
 
 <p style="text-align:center;">
   <strong>Mapa:</strong><br>
-  <img src=<%= @restaurante.mapa %> width="600" height="400" /img>
+  <img src=<%= @restaurante.mapa %> width="900" height="600" usemap= <%= "#" + @restaurante.nome + "mapa"%>>
 </p>
+<map name= <%= @restaurante.nome + "mapa" %>>
+<% i = 0%>
+<% @restaurante.layout.split(";").each do |f| %>
+  <area shape="rect" coords=<%= f %> alt = <%= i.to_s%>   href= <%= "/dado_inseridos/" + "create_url?id_restaurante=" + @restaurante.id.to_s + "&posicao=" + i.to_s %>>
+  <% i = i +1 %>
+<%end%>
 
 <p style="text-align:center;">
   <strong>Foto:</strong><br>

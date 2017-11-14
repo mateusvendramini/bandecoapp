@@ -1,3 +1,5 @@
+<!DOCTYPE html>
+
 <% if  logged_in? %>
 <head>
     <title><%= full_title(yield(:title)) %></title>
@@ -36,12 +38,12 @@ th {
     padding-top: 12px;
     padding-bottom: 12px;
     text-align: left;
-    background-color: rgb(72, 99, 210);
+    background-color: rgb(34, 34, 34);
     color: white;
 }
 
 a:link, a:visited {
-    background-color: black;
+    background-color: rgb(34, 34, 34);
     color: white;
     padding: 14px 25px;
     text-align: center;
@@ -51,7 +53,7 @@ a:link, a:visited {
 
 
 a:hover, a:active {
-    background-color: black;
+    background-color: rgb(34, 34, 34);
 }
 
 </style>
@@ -67,7 +69,6 @@ a:hover, a:active {
     <tr>
       <th>Nome</th>
       <th>Cardápio</th>
-      <th>Layout</th>
       <th>Mapa</th>
       <th>Foto</th>
       <th colspan="3"></th>
@@ -79,10 +80,8 @@ a:hover, a:active {
       <tr>
         <td><%= restaurante.nome %></td>
         <td><%= link_to 'Cardápio', restaurante.cardapio, :target => "_blank" %></td>
-        <td><%= link_to 'Layout da fila', restaurante.layout, :target => "_blank" %></td>
-        <td><img src=<%=restaurante.mapa %> width="149" height="105" /img></td>
+        <td><%= link_to 'Mapa/Layout', restaurante.layout, :target => "_blank" %></td>
         <td><img src=<%=restaurante.foto %> width="149" height="105" /img></td>
-        <td><%= link_to 'Mostrar informações', restaurante %></td>
         <td><%= link_to 'Editar', edit_restaurante_path(restaurante) %></td>
         <td><%= link_to 'Apagar restaurante', {:action => 'delete', :id => restaurante.id}, data: { confirm: "Você tem certeza?" } %></td>
       </tr>

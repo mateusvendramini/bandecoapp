@@ -11,6 +11,8 @@ Rails.application.routes.draw do
   get 'restaurantes/layout_fisica'
   get 'restaurantes/img_reserva'
 
+  get 'dado_inseridos/delete'
+  get 'dado_inseridos/create_url'
   get 'sessions/new'
 
   get 'estima_fila/update'

@@ -1,4 +1,5 @@
 class DadoInseridosController < ApplicationController
+  
   before_action :set_dado_inserido, only: [:show, :edit, :update, :destroy]
 
   # GET /dado_inseridos
@@ -36,9 +37,18 @@ class DadoInseridosController < ApplicationController
       end
     end
   end
+  def create_url 
+    flash[:danger]= "Dado inserido com sucesso"
+    DadoInserido.create(id_fila: params[:id_restaurante], posicao: params[:posicao])
+    redirect_to root_path
+  end
+  def delete
+    DadoInserido.find(params[:id]).destroy
+    redirect_to :action => 'index'
+  end
 
   # PATCH/PUT /dado_inseridos/1
-  # PATCH/PUT /dado_inseridos/1.json
+  # PATCH/PUT /dado_inseridos/1.jsons
   def update
     respond_to do |format|
       if @dado_inserido.update(dado_inserido_params)
