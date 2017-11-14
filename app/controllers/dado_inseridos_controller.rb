@@ -38,8 +38,9 @@ class DadoInseridosController < ApplicationController
     end
   end
   def create_url 
-    #flash[:danger] = params[:id_restaurante]
+    flash[:danger]= "Dado inserido com sucesso"
     DadoInserido.create(id_fila: params[:id_restaurante], posicao: params[:posicao])
+    redirect_to root_path
   end
   def delete
     DadoInserido.find(params[:id]).destroy
