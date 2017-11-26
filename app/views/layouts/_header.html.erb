@@ -6,7 +6,10 @@
         <li><%= link_to "Home", root_path %></li>
         <li><%= link_to "Ajuda", help_path %></li>
         
-
+        <li class = "dropdown">
+          <p class="dropdown-toggle" data-toggle="dropdown">
+          Administradores <b class="caret"></b></p>
+          <ul class="dropdown-menu">
         <% if logged_in? %>
           <li><%= link_to "Admins",admins_path %></li>
           <li><%= link_to "Restaurantes",restaurantes_path %></li>
@@ -14,7 +17,7 @@
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               Account <b class="caret"></b>
             </a>
-            <ul class="dropdown-menu">
+            <ul class="dropdown-menu2">
               <li><%= link_to "Perfil", current_admin %></li>
               <li><%= link_to "Configurações", '#' %></li>
               <li class="divider"></li>
@@ -23,6 +26,8 @@
               </li>
             </ul>
           </li>
+        </ul>
+      </li>
 
         <% else %>
           <li><%= link_to "Log in", login_path %></li>

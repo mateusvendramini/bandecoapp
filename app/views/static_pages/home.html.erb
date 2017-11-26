@@ -28,7 +28,9 @@
       <%= link_to f.nome, f, class: "btn btn-lg btn-primary"  %>
       <% if !Fila.find_by(id_restaurante: f.id).nil? %>
         <% case Fila.find_by(id_restaurante: f.id).estado_fila %>
-        <% when 0..5 %>
+        <% when 0 %>
+        <p><%= "Sem Fila!"%></p>
+        <% when 1..5 %>
         <p><%= "Fila Pequena"%></p>
         <% when 5..10 %>
         <p><%= "Fila Razoável"%></p>

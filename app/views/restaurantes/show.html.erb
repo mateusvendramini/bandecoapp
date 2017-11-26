@@ -16,7 +16,7 @@
 
 <p style="text-align:center;">
   <strong>Mapa:</strong><br>
-  <img src=<%= @restaurante.mapa %> width="900" height="600" usemap= <%= "#" + @restaurante.nome + "mapa"%>>
+  <img id= "layout" src=<%= @restaurante.mapa %> width="900" height="600" usemap= <%= "#" + @restaurante.nome + "mapa"%>>
 </p>
 <map name= <%= @restaurante.nome + "mapa" %>>
 <% i = 0%>
@@ -25,6 +25,48 @@
   <% i = i +1 %>
 <%end%>
 
+
+
+<script>
+window.onload = function() {
+    var c = document.getElementById("myCanvas");
+    var ctx = c.getContext("2d");
+    var img = document.getElementById("layout");
+    ctx.drawImage(img, 0, 0);
+    ctx.fillStyle = '#f00';
+    <% i = 0 %>
+    <%@restaurante.layout.split(";").each do |f|%>
+    <% x = f.split(",") %>
+    <% if i < Fila.find_by(id_restaurante: @restaurante.id).estado_fila %>
+      <% i = i + 1 %>
+
+    <% xscale = 2.6 %>
+    <% yscale = 2.6 %>
+    ctx.beginPath();
+    ctx.moveTo(<%= x[0].to_i*xscale %>, <%=x[1].to_i*yscale %> );
+    ctx.lineTo(<%= x[2].to_i*xscale %>, <%=x[1].to_i*yscale %> );
+    ctx.lineTo(<%= x[2].to_i*xscale %>, <%=x[3].to_i*yscale %> );
+    ctx.lineTo(<%= x[0].to_i*xscale %>, <%=x[3].to_i*yscale %> );
+    ctx.lineTo(<%= x[0].to_i*xscale %>, <%=x[1].to_i*yscale %> );
+    ctx.closePath();
+    ctx.fill();
+    <% end  %> 
+    <% end %> 
+
+    var image = document.getElementById("layout");
+    
+    image.src = c.toDataURL();
+   // document.body.appendChild(image);
+    console.log(c.toDataURL());
+    c.style.visibility = "hidden";
+ 
+
+    
+
+}
+</script>
+
+
 <p style="text-align:center;">
   <strong>Foto:</strong><br>
   <img src=<%= @restaurante.foto %> width="149" height="105" /img>
@@ -32,7 +74,11 @@
 
 <p style="text-align:center;"><%= link_to 'Voltar', restaurantes_path %></p>
 
+
+
  <div class="container">
       <%= yield %>
       <%= render 'layouts/footer' %>
     </div>
+
+    <canvas id = "myCanvas" width="2338" height="1653"></canvas>
