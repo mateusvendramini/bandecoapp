@@ -13,6 +13,16 @@
 <p style="text-align:center;">
   <%= link_to 'Clique para ver o cardápio da semana', @restaurante.cardapio, :target => "_blank" %>
 </p>
+<div> Cardápio do dia <%= @restaurante.id %>
+      
+      <% Cardapio.all.each do |f|%>
+      <% if (f.dia_semana == "ASegunda") and (f.id_restaurante == @restaurante.id) %>
+      <%= f.conteudo %>
+      <%= Date.current.strftime('%A') %>
+      <% end %>
+      <% end %>
+
+ </div>
 
 <p style="text-align:center;">
   <strong>Mapa:</strong><br>
