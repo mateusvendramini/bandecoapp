@@ -1,0 +1,2 @@
+class Cardapio < ApplicationRecord
+end
