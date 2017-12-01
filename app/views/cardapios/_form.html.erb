@@ -1,0 +1,55 @@
+<% if  logged_in? %>
+
+<%= form_with(model: cardapio, local: true) do |form| %>
+  
+
+    <h3 style="text-align:center;">Por favor, fornecer as informações pedidas abaixo</h3>
+
+    <head>
+    <style>
+    div {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    }
+
+    div {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+    }
+
+    div:nth-child(even) {
+    background-color: #dddddd;
+    }
+    </style>
+    </head>
+
+
+  <div class="field">
+    <%= form.label :id_restaurante %>
+    <%= form.text_field :id_restaurante, id: :cardapio_id_restaurante %>
+  </div>
+
+  <div class="field">
+    <%= form.label :conteudo %>
+    <%= form.text_field :conteudo, id: :cardapio_conteudo %>
+  </div>
+
+  <div class="field">
+    <%= form.label :dia_semana %>
+    <%= form.text_field :dia_semana, id: :cardapio_dia_semana %>
+  </div>
+
+  
+
+  <div class="actions">
+    <%= form.submit 'Concluir' %>
+  </div>
+<% end %>
+
+<% else %>
+<h1>Não logado </h1>
+<meta http-equiv="refresh" content="0; url=/" /> 
+
+<% end %> 

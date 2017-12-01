@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= full_title(yield(:title)) %></title>
+    <%= csrf_meta_tags %>
+    <%= stylesheet_link_tag    'application', media: 'all',
+                                              'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= render 'layouts/shim' %>
+  </head>
+  <body>
+    <%= render 'layouts/header' %>
+    <div class="container">
+      <%= yield %>
+    </div>
+
+
+
+
+    <div class="center jumbotron">
+<h1>Cardapios</h1>
+<table>
+  <thead>
+    <tr>
+      <th>Restaurante</th>
+      <th>dia semana</th>
+      <th>conteudo</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+
+  <% if logged_in? %>
+  <tbody>
+    
+    <% for cardapio in @cardapios %>
+      <tr>
+        <td><%= cardapio.id_restaurante %></td>
+        <td><%= cardapio.dia_semana %></td>
+        <td><%= cardapio.conteudo %></td>
+        <td><%= link_to 'edit', cardapios_edit_path(cardapio) %></td>
+
+      
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<br>
+
+
+
+</div>
+<% else %>
+<h1>Não logado </h1>
+<meta http-equiv="refresh" content="0; url=/" /> 
+
+<% end %> 
+
+
+</div>
+
+
+
+    <div class="container">
+      <%= yield %>
+      <%= render 'layouts/footer' %>
+    </div>
+
+
+
+  </body>
+</html>

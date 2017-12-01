@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
 
+  get 'cardapios/new'
+
+  get 'cardapios/index'
+
+  get 'cardapios/edit'
+
   get 'restaurantes/index'
   post 'restaurantes/create'
   patch 'restaurantes/update'
@@ -42,11 +48,17 @@ Rails.application.routes.draw do
   post "admins/delete_multiple"
   post "admins/select_multiple"
 
+  get 'cardapios/index'
+  patch 'cardapios/edit'
+  patch 'cardapios/update'
+
+
   resources :dado_inseridos
   resources :filas
   resources :restaurantes
   resources :admins
   resources :admins, :collection => {:delete_multiple => :post}
+  resources :cardapios
 
   root 'application#hello'
 end
