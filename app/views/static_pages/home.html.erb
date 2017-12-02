@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= full_title(yield(:title)) %></title>
+    
     <%= csrf_meta_tags %>
     <%= stylesheet_link_tag    'application', media: 'all',
                                               'data-turbolinks-track': 'reload' %>
@@ -42,9 +42,7 @@
 
     
 </div>
-<div class="atualizador">
-<%= link_to "Atualizar Filas", "/estima_fila/update", class: "btn btn-lg btn-primary" %>
-</div>
+
 
     <div class="container">
       <%= yield %>
