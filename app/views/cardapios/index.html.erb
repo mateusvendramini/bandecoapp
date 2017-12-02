@@ -35,10 +35,11 @@
     
     <% for cardapio in @cardapios %>
       <tr>
-        <td><%= cardapio.id_restaurante %></td>
+        <td><%= Restaurante.find(cardapio.id_restaurante).nome %></td>
         <td><%= cardapio.dia_semana %></td>
         <td><%= cardapio.conteudo %></td>
-        <td><%= link_to 'edit', cardapios_edit_path(cardapio) %></td>
+        <% url = "/cardapios/" + cardapio.id.to_s + "/edit/" %>
+        <td><%= link_to 'edit', url %></td>
 
       
       </tr>

@@ -6,9 +6,11 @@ class CardapiosController < ApplicationController
   	@cardapios = Cardapio.all
   end
   def edit
+  	@cardapio = Cardapio.find(params[:id])
   end
  
   def update
+  	@Cardapio = Cardapio.find(params[:id])
   	respond_to do |format|
       if @Cardapio.update(cardapio_params)
         format.html { redirect_to "/cardapios/" , notice: 'Cardapio foi editado com sucesso' }
@@ -20,11 +22,11 @@ class CardapiosController < ApplicationController
   end
 
   def set_cardapios
-      @cardapio = Restaurante.find(params[:id])
+      @Cardapio = Cardapio.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def cardapio_params
-      params.permit(:id, :id_restaurante, :dia_semana, :conteudo)
+      params.require(:cardapio).permit(:id, :id_restaurante, :dia_semana, :conteudo)
     end
 end

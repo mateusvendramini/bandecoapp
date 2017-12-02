@@ -64,7 +64,13 @@ a:hover, a:active {
 
 <h1 style="text-align:center;">Editando Restaurante</h1>
 
-<%= render 'form', cardapio: @cardapio %>
+<%= form_for @cardapio, :url =>{:action => "update", :id =>@cardapio} do |f| %>
+
+<p>cardapio: <%= f.text_field 'conteudo' %></p>
+
+<%= f.submit "Save changes" %>
+<% end %>
+
 
  
 <p style="text-align:center;"><%= link_to 'Voltar', cardapios_path %></p>

@@ -50,6 +50,7 @@ Rails.application.routes.draw do
 
   get 'cardapios/index'
   patch 'cardapios/edit'
+  post 'cardapios/edit'
   patch 'cardapios/update'
 
 
