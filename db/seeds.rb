@@ -29,7 +29,7 @@ end
 
 Admin.create( login: "carlinhos", senha: "123", nome: "carlinhos")
 #cria primeio adm
-lista_nome = [ "central", "prefeitura", "quimica"]
+lista_nome = ["quimica"]
 
 lista_nome.each do |f|
 	Restaurante.create(nome: f, cardapio: f, layout: f, mapa: f, foto: f)
@@ -38,8 +38,22 @@ end
 
 
 Restaurante.create(nome: "fisica", cardapio: " https://uspdigital.usp.br/rucard/Jsp/cardapioSAS.jsp?codrtn=8",
- layout: "700,250,760,280;700,280,760,310;700,310,760,340;700,340,760,370;700,370,760,400;640,370,720,400;580,370,640,400;580,370,640,400;540,370,600,400;",
+ layout: "690,220,760,250;690,250,760,280;690,280,760,310;690,310,760,340;690,340,760,370;690,370,760,400;
+ 640,360,690,400;540,360,640,400;440,360,540,400;340,360,440,400;240,360,340,400;140,360,240,400;40,360,140,400;0,360,40,400;",
   mapa: "/assets/bandejao_fisica_mao.jpeg", foto: " /assets/fisica_foto.jpg")
+
+Restaurante.create(nome: "prefeitura", cardapio: " tanto faz",
+ layout: "230,26,330,60;330,26,430,60;430,26,530,60;530,26,630,60;630,26,730,60;
+ 680,60,730,160;680,160,730,260;680,260,730,360;
+ 630,360,730,390;500,360,630,390;500,390,550,490;500,490,550,440;
+ 500,490,650,540;650,490,750,540;750,490,900,540;",
+  mapa: "/assets/Pref_mapinha.png", foto: " /assets/pref_foto.jpg")
+
+Restaurante.create(nome: "central", cardapio: " carlinhos",
+ layout: "410,220,450,260;410,260,450,300;350,300,450,340;
+ 250,300,350,340;150,300,250,340;0,300,150,340;|460,220,510,260;460,260,510,300;",
+  mapa: "/assets/Central_mapinha.png", foto: "bandejao_central_img.jpg")
+
 Restaurante.all.each do |g| #associa uma fila a um restaurante
 	Fila.create(id_restaurante: g.id, estado_fila: "0".to_i)
 	Cardapio.create(id_restaurante: g.id, dia_semana: "Monday", conteudo: "cardapio nao registrado")

@@ -28,10 +28,14 @@
   <img id= "layout" src=<%= @restaurante.mapa %> width="900" height="600" usemap= <%= "#" + @restaurante.nome + "mapa"%>>
 </p>
 <map name= <%= @restaurante.nome + "mapa" %>>
+
+<% @restaurante.layout.split("|").each do |g| %>
 <% i = 0%>
-<% @restaurante.layout.split(";").each do |f| %>
-  <area shape="rect" coords=<%= f %> alt = <%= i.to_s%>   href= <%= "/dado_inseridos/" + "create_url?id_restaurante=" + Fila.find_by(id_restaurante: @restaurante.id).id.to_s + "&posicao=" + i.to_s %>>
-  <% i = i +1 %>
+  <% g.split(";").each do |f| %>
+    <area shape="rect" coords=<%= f %> alt = <%= i.to_s%>   href= <%= "/dado_inseridos/" + "create_url?id_restaurante=" + Fila.find_by(id_restaurante: @restaurante.id).id.to_s + "&posicao=" + i.to_s %>>
+    <% i = i +1 %>
+<%end%>
+<% i = 0 %>
 <%end%>
 
 
@@ -42,15 +46,18 @@ window.onload = function() {
     var ctx = c.getContext("2d");
     var img = document.getElementById("layout");
     ctx.drawImage(img, 0, 0);
-    ctx.fillStyle = '#f00';
+    
     <% i = 0 %>
+    
+    <% if Fila.find_by(id_restaurante: @restaurante.id).estado_fila > 0 %>
+    ctx.fillStyle = '#f00';
     <%@restaurante.layout.split(";").each do |f|%>
     <% x = f.split(",") %>
-    <% if i < Fila.find_by(id_restaurante: @restaurante.id).estado_fila %>
+    <% if i < Fila.find_by(id_restaurante: @restaurante.id).estado_fila + 1%>
       <% i = i + 1 %>
 
-    <% xscale = 2.6 %>
-    <% yscale = 2.6 %>
+    <% xscale = 1 %>
+    <% yscale = 1 %>
     ctx.beginPath();
     ctx.moveTo(<%= x[0].to_i*xscale %>, <%=x[1].to_i*yscale %> );
     ctx.lineTo(<%= x[2].to_i*xscale %>, <%=x[1].to_i*yscale %> );
@@ -60,6 +67,7 @@ window.onload = function() {
     ctx.closePath();
     ctx.fill();
     <% end  %> 
+    <% end %> 
     <% end %> 
 
     var image = document.getElementById("layout");
@@ -90,4 +98,4 @@ window.onload = function() {
       <%= render 'layouts/footer' %>
     </div>
 
-    <canvas id = "myCanvas" width="2338" height="1653"></canvas>
+    <canvas id = "myCanvas" width="900" height="600"></canvas>
