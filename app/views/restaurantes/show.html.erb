@@ -1,6 +1,22 @@
 
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= full_title(yield(:title)) %></title>
+    <%= csrf_meta_tags %>
+    <%= stylesheet_link_tag    'application', media: 'all',
+                                              'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= render 'layouts/shim' %>
+  </head>
+  <body>
+    <%= render 'layouts/header' %>
+    <div class="container">
+      <%= yield %>
+    </div>
+    <div class="center jumbotron">
 
-<p id="notice"><%= notice %></p>
+
 
 <h3 style="text-align:center;">Informações do restaurante</h3>
 
@@ -10,18 +26,9 @@
   <%= @restaurante.nome %>
 </p>
 
-<p style="text-align:center;">
-  <%= link_to 'Clique para ver o cardápio da semana', @restaurante.cardapio, :target => "_blank" %>
-</p>
-<div> Cardápio do dia >
-      
-      <% Cardapio.all.each do |f|%>
-      <% if (f.dia_semana == Date.current.strftime('%A') ) and (f.id_restaurante == @restaurante.id) %>
-      <%= content_tag('pre', f.conteudo) %>
-      <% end %>
-      <% end %>
 
- </div>
+
+ 
 
 <p style="text-align:center;">
   <strong>Mapa:</strong><br>
@@ -37,7 +44,18 @@
 <%end%>
 <% i = 0 %>
 <%end%>
+</map>
 
+<div> Cardápio do dia 
+      
+      <% Cardapio.all.each do |f|%>
+        <% if (f.dia_semana == Date.current.strftime('%A') ) and (f.id_restaurante == @restaurante.id) %>
+          <%f.conteudo.split("#").each do |g| %>
+            <li><%= g %> </li>
+          <% end %>
+        <% end %>
+      <% end %>
+</div>
 
 
 <script>
@@ -96,9 +114,17 @@ window.onload = function() {
 
 
 
- <div class="container">
+ 
+
+<div class="container">
       <%= yield %>
       <%= render 'layouts/footer' %>
     </div>
 
-    <canvas id = "myCanvas" width="900" height="600"></canvas>
+
+
+  </body>
+
+<canvas id = "myCanvas" width="900" height="600"></canvas>
+
+</html>
