@@ -29,12 +29,7 @@ end
 
 Admin.create( login: "carlinhos", senha: "123", nome: "carlinhos")
 #cria primeio adm
-lista_nome = ["quimica"]
 
-lista_nome.each do |f|
-	Restaurante.create(nome: f, cardapio: f, layout: f, mapa: f, foto: f)
-	
-end
 
 
 Restaurante.create(nome: "fisica", cardapio: " https://uspdigital.usp.br/rucard/Jsp/cardapioSAS.jsp?codrtn=8",
@@ -51,8 +46,14 @@ Restaurante.create(nome: "prefeitura", cardapio: " tanto faz",
 
 Restaurante.create(nome: "central", cardapio: " carlinhos",
  layout: "410,220,450,260;410,260,450,300;350,300,450,340;
+ 250,300,350,340;150,300,250,340;0,300,150,340;|460,220,510,260;460,260,510,300;460,260,510,300;460,260,510,300;460,260,510,300;460,260,510,300;",
+  mapa: "/assets/Central_mapinha.png", foto: "/assets/bandejao_central_img.jpg")
+
+
+Restaurante.create(nome: "quimica", cardapio: " 734",
+ layout: "500,220,600,260;410,260,450,300;350,300,450,340;
  250,300,350,340;150,300,250,340;0,300,150,340;|460,220,510,260;460,260,510,300;",
-  mapa: "/assets/Central_mapinha.png", foto: "bandejao_central_img.jpg")
+  mapa: "/assets/Mapa_Quim.png", foto: "/assets/quimica_foto.jpg")
 
 Restaurante.all.each do |g| #associa uma fila a um restaurante
 	Fila.create(id_restaurante: g.id, estado_fila: "0".to_i)

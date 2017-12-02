@@ -47,27 +47,30 @@ window.onload = function() {
     var img = document.getElementById("layout");
     ctx.drawImage(img, 0, 0);
     
-    <% i = 0 %>
-    
     <% if Fila.find_by(id_restaurante: @restaurante.id).estado_fila > 0 %>
-    ctx.fillStyle = '#f00';
-    <%@restaurante.layout.split(";").each do |f|%>
-    <% x = f.split(",") %>
-    <% if i < Fila.find_by(id_restaurante: @restaurante.id).estado_fila + 1%>
-      <% i = i + 1 %>
+      ctx.fillStyle = '#f00';
+      <%@restaurante.layout.split("|").each do |g|%>
+        <% i = 0 %>
+        //vezes que isso foi rodado
+        <%g.split(";").each do |f|%>
+          <% x = f.split(",") %>
+          <% if i < Fila.find_by(id_restaurante: @restaurante.id).estado_fila + 1 %>
+            
 
-    <% xscale = 1 %>
-    <% yscale = 1 %>
-    ctx.beginPath();
-    ctx.moveTo(<%= x[0].to_i*xscale %>, <%=x[1].to_i*yscale %> );
-    ctx.lineTo(<%= x[2].to_i*xscale %>, <%=x[1].to_i*yscale %> );
-    ctx.lineTo(<%= x[2].to_i*xscale %>, <%=x[3].to_i*yscale %> );
-    ctx.lineTo(<%= x[0].to_i*xscale %>, <%=x[3].to_i*yscale %> );
-    ctx.lineTo(<%= x[0].to_i*xscale %>, <%=x[1].to_i*yscale %> );
-    ctx.closePath();
-    ctx.fill();
-    <% end  %> 
-    <% end %> 
+            <% xscale = 1 %>
+            <% yscale = 1 %>
+            ctx.beginPath();
+            ctx.moveTo(<%= x[0].to_i*xscale %>, <%=x[1].to_i*yscale %> );
+            ctx.lineTo(<%= x[2].to_i*xscale %>, <%=x[1].to_i*yscale %> );
+            ctx.lineTo(<%= x[2].to_i*xscale %>, <%=x[3].to_i*yscale %> );
+            ctx.lineTo(<%= x[0].to_i*xscale %>, <%=x[3].to_i*yscale %> );
+            ctx.lineTo(<%= x[0].to_i*xscale %>, <%=x[1].to_i*yscale %> );
+            ctx.closePath();
+            ctx.fill();
+            <% i = i + 1 %>
+          <% end  %> 
+        <% end %> 
+      <% end %>
     <% end %> 
 
     var image = document.getElementById("layout");
@@ -89,7 +92,7 @@ window.onload = function() {
   <img src=<%= @restaurante.foto %> width="149" height="105" /img>
 </p>
 
-<p style="text-align:center;"><%= link_to 'Voltar', restaurantes_path %></p>
+<p style="text-align:center;"><%= link_to 'Voltar', "/#" %></p>
 
 
 
