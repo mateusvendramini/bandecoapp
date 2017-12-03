@@ -25,7 +25,9 @@
   <%#trocar isso por algo dinâmico, like: Restaurante.each do |F|
       link_to f.nome, path_to f, class sei lá o que é isso ... %>
   <% Restaurante.all.each do |f| %>
-      <%= link_to f.nome, f, class: "btn btn-lg btn-primary"  %>
+      <br>
+      <href style="background-color: rgb(34, 34, 34);padding: 14px 25px;border-radius: 5px;"><%= link_to f.nome, f%></href>
+      <br><br>
       <% if !Fila.find_by(id_restaurante: f.id).nil? %>
         <% case Fila.find_by(id_restaurante: f.id).estado_fila %>
         <% when 0 %>

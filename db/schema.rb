@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171203114456) do
+ActiveRecord::Schema.define(version: 20171127004536) do
 
   create_table "admins", force: :cascade do |t|
     t.string "login"
@@ -47,6 +47,7 @@ ActiveRecord::Schema.define(version: 20171203114456) do
 
   create_table "restaurantes", force: :cascade do |t|
     t.string "nome"
+    t.string "cardapio"
     t.string "layout"
     t.string "mapa"
     t.string "foto"
