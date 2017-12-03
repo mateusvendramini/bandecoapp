@@ -54,7 +54,7 @@ th {
   <thead>
     <tr>
       <th>Nome</th>
-      <th>Cardápio</th>
+      
       <th>Mapa</th>
       <th>Foto</th>
       <th colspan="3"></th>
@@ -65,7 +65,7 @@ th {
     <% @restaurantes.each do |restaurante| %>
       <tr>
         <td><%= restaurante.nome %></td>
-        <td><%= link_to 'Cardápio', restaurante.cardapio, :target => "_blank" %></td>
+        
         <td><%= link_to 'Mapa/Layout', restaurante, :target => "_blank" %></td>
         <td><img src=<%=restaurante.foto %> width="149" height="105" /img></td>
         <td><%= link_to 'Editar', edit_restaurante_path(restaurante) %></td>

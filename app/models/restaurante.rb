@@ -2,8 +2,6 @@ class Restaurante < ApplicationRecord
 	validates :nome, presence: true
 	validates :nome, uniqueness: true
 
-	validates :cardapio, presence: true
-	validates :cardapio, uniqueness: true
 
 	validates :layout, presence: true
 	
