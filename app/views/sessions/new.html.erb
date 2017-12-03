@@ -30,6 +30,7 @@
       <%= f.password_field :senha, class: 'form-control' %>
 
       <%= f.submit "Log in", class: "btn btn-primary" %>
+      <%= link_to "Cancelar", root_path, id: "aux", class: "btn btn-primary" %>
     <% end %>
 
     <p>Deseja se tornar colaborador? <%= link_to "Contato!", contact_path %></p>

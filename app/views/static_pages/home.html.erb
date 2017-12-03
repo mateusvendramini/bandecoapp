@@ -18,12 +18,13 @@
 
 
     <div class="center jumbotron">
-  <h1>Tamanho atual das filas:</h1>
+  <h1>Situação atual das filas:</h1>
 
   
   <h2>Colabore informando sua posição na fila. Acesse a página do resturante que você escolheu:</h2>
   <%#trocar isso por algo dinâmico, like: Restaurante.each do |F|
       link_to f.nome, path_to f, class sei lá o que é isso ... %>
+
   <% Restaurante.all.each do |f| %>
       <br>
       <href style="background-color: rgb(34, 34, 34);padding: 14px 25px;border-radius: 5px;"><%= link_to f.nome, f%></href>
@@ -43,6 +44,7 @@
       <%end%>
 
     
+
 </div>
 
 
