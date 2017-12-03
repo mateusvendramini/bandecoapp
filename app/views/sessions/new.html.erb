@@ -27,9 +27,9 @@
       <%= f.text_field :login, class: 'form-control' %>
 
       <%= f.label :senha %>
-      <%= f.password_field :senha, class: 'form-control' %>
+      <%= f.password_field :senha, class: 'form-control' %><br>
 
-      <%= f.submit "Log in", class: "btn btn-primary" %>
+ 	  <div style="text-align:center;"><%= f.submit "Log in", class: "btn btn-primary" %></div><br>
     <% end %>
 
     <p>Deseja se tornar colaborador? <%= link_to "Contato!", contact_path %></p>
