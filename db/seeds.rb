@@ -27,7 +27,7 @@ end
 
 
 
-Admin.create( login: "aluno", senha: "epusp", nome: "GrupoPMR3304")
+Admin.create( login: "aluno", senha: "epusp", nome: "GrupoPMR3304", email: "email@bandecoapp.com")
 #cria primeio adm
 
 

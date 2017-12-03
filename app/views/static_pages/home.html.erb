@@ -27,7 +27,7 @@
 
   <% Restaurante.all.each do |f| %>
       <br>
-      <href style="background-color: rgb(34, 34, 34);padding: 14px 25px;border-radius: 5px;"><%= link_to f.nome, f%></href>
+      <href style="background-color: rgb(34, 34, 34);padding: 14px 25px;border-radius: 5px;text-shadow: 1px 1px #ffffff;"><%= link_to f.nome, f%></href>
       <br><br>
       <% if !Fila.find_by(id_restaurante: f.id).nil? %>
         <% case Fila.find_by(id_restaurante: f.id).estado_fila %>

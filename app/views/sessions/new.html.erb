@@ -27,10 +27,12 @@
       <%= f.text_field :login, class: 'form-control' %>
 
       <%= f.label :senha %>
-      <%= f.password_field :senha, class: 'form-control' %>
+      <%= f.password_field :senha, class: 'form-control' %><br>
+
 
       <%= f.submit "Log in", class: "btn btn-primary" %>
       <%= link_to "Cancelar", root_path, id: "aux", class: "btn btn-primary" %>
+
     <% end %>
 
     <p>Deseja se tornar colaborador? <%= link_to "Contato!", contact_path %></p>
