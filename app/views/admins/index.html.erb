@@ -44,7 +44,6 @@ th {
 <div class="center jumbotron">
 <h1>Administradores</h1>
 <h3 >Para deletar administradores, selecionar os registros e apertar o botão deletar</h3>
-<%= submit_tag "Delete admin(s)" %>
 <table style="width:100%">  
   <thead>
     <tr>
@@ -69,18 +68,21 @@ th {
       
       </tr>
     <% end %>
+    <h3 >Para deletar administradores, selecionar os registros e apertar o botão deletar</h3>
+    <p><%= submit_tag "Deletar admin(s)" %></p>
   </tbody>
 </table>
 <br>
 
 <% end %>
-<%= link_to 'Novo Admin', new_admin_path %>
+<%= link_to 'New Admin', new_admin_path %>
 </div>
 <% else %>
 <h1>Não logado </h1>
 <meta http-equiv="refresh" content="0; url=/" /> 
 
 <% end %> 
+
 
 
 </div>
